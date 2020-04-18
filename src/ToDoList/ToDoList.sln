@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Data", "ToDoList.Data\ToDoList.Data.csproj", "{0C7C35CD-B056-414A-9C50-AB2D5FFFA0CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Data", "ToDoList.Data\ToDoList.Data.csproj", "{0C7C35CD-B056-414A-9C50-AB2D5FFFA0CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Core", "ToDoList.Core\ToDoList.Core.csproj", "{D83573F7-3811-4EE5-98FD-3ECCF92662C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Core", "ToDoList.Core\ToDoList.Core.csproj", "{D83573F7-3811-4EE5-98FD-3ECCF92662C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Console", "ToDoList.Console\ToDoList.Console.csproj", "{4A6EA458-5850-4D40-BE9C-61A37D327919}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Data.Memory", "ToDoList.Data.Memory\ToDoList.Data.Memory.csproj", "{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D83573F7-3811-4EE5-98FD-3ECCF92662C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D83573F7-3811-4EE5-98FD-3ECCF92662C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D83573F7-3811-4EE5-98FD-3ECCF92662C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A6EA458-5850-4D40-BE9C-61A37D327919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6EA458-5850-4D40-BE9C-61A37D327919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6EA458-5850-4D40-BE9C-61A37D327919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6EA458-5850-4D40-BE9C-61A37D327919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
