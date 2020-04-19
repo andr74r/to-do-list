@@ -1,12 +1,7 @@
 ﻿using Autofac;
 using AutoMapper;
-using ToDoList.Core.Dto;
-using ToDoList.Core.Services.Category;
-using ToDoList.Core.Services.Issue;
-using ToDoList.Data.Entities;
-using ToDoList.Data.Memory.Repositories;
-using ToDoList.Data.Repositories.CategoryRepository;
-using ToDoList.Data.Repositories.IssueRepository;
+using ToDoList.Core.Infrastructure;
+using ToDoList.Data.Memory.Infrastructure;
 
 namespace ToDoList.Console
 {
@@ -16,23 +11,11 @@ namespace ToDoList.Console
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<CategoryRepository>().As<ICategoryRepository>();
-            builder.RegisterType<IssueRepository>().As<IIssueRepository>();
+            builder.RegisterModule(new AutofacDataMemoryModule());
 
-            builder.RegisterType<CategoryService>().As<ICategoryService>();
-            builder.RegisterType<IssueService>().As<IIssueService>();
+            builder.RegisterModule(new AutofacCoreModule());
 
-            var configuration = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<CategoryDto, Category>();
-                cfg.CreateMap<Category, CategoryDto>();
-                cfg.CreateMap<IssueDto, Issue>();
-                cfg.CreateMap<Issue, IssueDto>();
-            });
-
-
-            builder.Register(ctx => new Mapper(configuration))
-                .As<IMapper>();
+            builder.Register(ctx => MapperFactory.CreateMapper()).As<IMapper>();
 
             return builder.Build();
         }
