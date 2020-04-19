@@ -14,4 +14,8 @@
     <ProjectReference Include="..\..\Data\ToDoList.Data\ToDoList.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
