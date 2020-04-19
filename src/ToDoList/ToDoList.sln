@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Data", "ToDoList.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Core", "ToDoList.Core\ToDoList.Core.csproj", "{D83573F7-3811-4EE5-98FD-3ECCF92662C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Console", "ToDoList.Console\ToDoList.Console.csproj", "{4A6EA458-5850-4D40-BE9C-61A37D327919}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Console", "ToDoList.Console\ToDoList.Console.csproj", "{4A6EA458-5850-4D40-BE9C-61A37D327919}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Data.Memory", "ToDoList.Data.Memory\ToDoList.Data.Memory.csproj", "{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Data.Memory", "ToDoList.Data.Memory\ToDoList.Data.Memory.csproj", "{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Web", "ToDoList.Web\ToDoList.Web.csproj", "{2A977EA1-B243-475C-9FC9-5F2326D3E455}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A977EA1-B243-475C-9FC9-5F2326D3E455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A977EA1-B243-475C-9FC9-5F2326D3E455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A977EA1-B243-475C-9FC9-5F2326D3E455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A977EA1-B243-475C-9FC9-5F2326D3E455}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
