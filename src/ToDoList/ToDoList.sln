@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Data", "ToDoList.Data\ToDoList.Data.csproj", "{0C7C35CD-B056-414A-9C50-AB2D5FFFA0CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Data", "Data\ToDoList.Data\ToDoList.Data.csproj", "{0C7C35CD-B056-414A-9C50-AB2D5FFFA0CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Core", "ToDoList.Core\ToDoList.Core.csproj", "{D83573F7-3811-4EE5-98FD-3ECCF92662C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Core", "Core\ToDoList.Core\ToDoList.Core.csproj", "{D83573F7-3811-4EE5-98FD-3ECCF92662C0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Console", "ToDoList.Console\ToDoList.Console.csproj", "{4A6EA458-5850-4D40-BE9C-61A37D327919}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Console", "Hosts\ToDoList.Console\ToDoList.Console.csproj", "{4A6EA458-5850-4D40-BE9C-61A37D327919}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Data.Memory", "ToDoList.Data.Memory\ToDoList.Data.Memory.csproj", "{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Data.Memory", "Data\ToDoList.Data.Memory\ToDoList.Data.Memory.csproj", "{CD9045B5-5EB4-4642-B7D6-6A9D32194A38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Web", "ToDoList.Web\ToDoList.Web.csproj", "{2A977EA1-B243-475C-9FC9-5F2326D3E455}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Web", "Hosts\ToDoList.Web\ToDoList.Web.csproj", "{2A977EA1-B243-475C-9FC9-5F2326D3E455}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{9C81CC31-92BD-4D34-AB72-FB6A0DA8E56B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{452D3E62-2237-4B5C-99B5-AC21C3502514}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CF08738B-38DF-4720-8EE8-20DCA1CCA0AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +48,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0C7C35CD-B056-414A-9C50-AB2D5FFFA0CC} = {452D3E62-2237-4B5C-99B5-AC21C3502514}
+		{D83573F7-3811-4EE5-98FD-3ECCF92662C0} = {CF08738B-38DF-4720-8EE8-20DCA1CCA0AE}
+		{4A6EA458-5850-4D40-BE9C-61A37D327919} = {9C81CC31-92BD-4D34-AB72-FB6A0DA8E56B}
+		{CD9045B5-5EB4-4642-B7D6-6A9D32194A38} = {452D3E62-2237-4B5C-99B5-AC21C3502514}
+		{2A977EA1-B243-475C-9FC9-5F2326D3E455} = {9C81CC31-92BD-4D34-AB72-FB6A0DA8E56B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8FFBB43C-E97F-4340-97EF-B632481EFE7A}

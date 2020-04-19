@@ -10,9 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ToDoList.Core\ToDoList.Core.csproj" />
-    <ProjectReference Include="..\ToDoList.Data.Memory\ToDoList.Data.Memory.csproj" />
-    <ProjectReference Include="..\ToDoList.Data\ToDoList.Data.csproj" />
+    <ProjectReference Include="..\..\Core\ToDoList.Core\ToDoList.Core.csproj" />
+    <ProjectReference Include="..\..\Data\ToDoList.Data.Memory\ToDoList.Data.Memory.csproj" />
+    <ProjectReference Include="..\..\Data\ToDoList.Data\ToDoList.Data.csproj" />
   </ItemGroup>
 
 </Project>
