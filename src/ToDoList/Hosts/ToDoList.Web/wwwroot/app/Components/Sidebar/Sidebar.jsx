@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { CategoryList } from './CategoryList/CategoryList';
 import '../../Styles/Sidebar/sidebar.css'
 
 export class Sidebar extends React.Component {
     render() {
+        const {categories} = this.props;
+
         return <div className="sidebar">
-            <a className="sidebar__category">Category1</a>
-            <a className="sidebar__category">Category2</a>
+            <CategoryList 
+                categories = {categories}/>
         </div>
     }
 }
 
-Sidebar.propTypes = {};
+Sidebar.propTypes = {
+    categories: PropTypes.array
+};
