@@ -1,29 +1,18 @@
 import React from 'react';
-import { render } from 'react-dom'
+import { render } from 'react-dom';
 
-import { Content } from './Components/Content/Content';
-import { Sidebar } from './Components/Sidebar/Sidebar';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-class App extends React.Component {
-    render() {
-        const issues = [
-            { name: 'clean up room', isCompleted: true, id: 1, categoryId: 1 },
-            { name: 'fix power socket', isCompleted: false, id: 2, categoryId: 1 }
-        ];
+import { rootReducer } from './Reducers/RootReducer';
 
-        const categories = [
-            { name: 'home', userId: 1, id: 1},
-            { name: 'work', userId: 2, id: 2}
-        ];
+import { Root } from './Components/App';
 
-        return <div>
-            <Sidebar categories = {categories}/>
-            <Content issues = {issues}/>
-        </div>;
-    }
-}
+const store = createStore(rootReducer);
 
 render(
-  <App />,
-  document.getElementById("content")
-);
+    <Provider store={store}>
+        <Root />
+    </Provider>,
+    document.getElementById("content")
+)
