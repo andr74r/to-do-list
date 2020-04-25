@@ -4,21 +4,18 @@ export const issuesReducer = (state = [], action) => {
     switch(action.type) {
         case ADD_ISSUE:
             state.push(action.issue);
-            return [...state];
+            return [...state.sortById()];
         case DELETE_ISSUE:
-            let newState = removeIssue(state, action.issueId);
-            return newState;
+            return state
+                .removeItemById(action.issueId)
+                .sortById();
         case SET_ISSUES:
-            return action.issues;
+            return action.issues.sortById();
         case UPDATE_ISSUE:
-            newState = removeIssue(state, action.issue.id);
-            newState.push(action.issue);
-            return newState;
+            return state
+                .replaceItemById(action.issue)
+                .sortById();
         default:
             return state;
     }
-}
-
-const removeIssue = (issues, id) => {
-    return issues.filter(x => x.id != id);
 }

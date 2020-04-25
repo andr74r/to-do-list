@@ -3,23 +3,19 @@ import { SET_CATEGORIES, ADD_CATEGORY, UPDATE_CATEGORY, DELETE_CATEGORY } from '
 export const categoriesReducer = (state = [], action) => {
     switch (action.type) {
         case SET_CATEGORIES:
-            return action.categories;
+            return action.categories.sortById();
         case ADD_CATEGORY:
             state.push(action.category);
-            return [...state];
+            return [...state.sortById()];
         case UPDATE_CATEGORY:
-            let newState = removeCategory(state, action.category.id);
-            newState.push(action.category);
-            return newState;
+            return state
+                .replaceItemById(action.category)
+                .sortById();
         case DELETE_CATEGORY:
-            newState = removeCategory(state, action.categoryId);
-            return newState;
+            return state
+                .removeItemById(action.categoryId)
+                .sortById();
         default:
             return state;
     }
 }
-
-const removeCategory = (categories, id) => {
-    return categories.filter(x => x.id != id);
-}
-
