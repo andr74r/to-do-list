@@ -4,22 +4,24 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
+import FilterType from '../../../Consts/FilterType';
+
 export class IssueTypePicker extends React.Component {
     render() {
         return <div>
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={4}>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="primary" onClick={() => this.props.setIssueFilter(FilterType.all)}>
                         Tasks
                     </Button>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="primary" onClick={() => this.props.setIssueFilter(FilterType.todo)}>
                         ToDo
                     </Button>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="primary" onClick={() => this.props.setIssueFilter(FilterType.completed)}>
                         Completed
                     </Button>
                 </Grid>
@@ -28,4 +30,6 @@ export class IssueTypePicker extends React.Component {
     }
 }
 
-IssueTypePicker.propTypes = {};
+IssueTypePicker.propTypes = {
+    setIssueFilter: PropTypes.func
+};

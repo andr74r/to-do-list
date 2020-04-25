@@ -10,11 +10,13 @@ export class Content extends React.Component {
         const { issues } = this.props;
 
         return <div>
-            <IssueTypePicker />
+            <IssueTypePicker 
+                setIssueFilter={this.props.setIssueFilter}/>
             <IssueList 
                 issues={issues}
                 changeIssueStatus={this.props.changeIssueStatus}
-                deleteIssue={this.props.deleteIssue}/>
+                deleteIssue={this.props.deleteIssue}
+                issueFilter={this.props.issueFilter}/>
             <AddIssueControl
                 createIssue={this.props.createIssue}
                 selectedCategoryId={this.props.selectedCategoryId}
@@ -28,5 +30,7 @@ Content.propTypes = {
     changeIssueStatus: PropTypes.func,
     createIssue: PropTypes.func,
     selectedCategoryId: PropTypes.number,
-    deleteIssue: PropTypes.func
+    deleteIssue: PropTypes.func,
+    setIssueFilter: PropTypes.func,
+    issueFilter: PropTypes.string
 };

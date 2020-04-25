@@ -3,12 +3,30 @@ import PropTypes from 'prop-types';
 
 import {Issue} from './Issue';
 
+import FilterType from '../../../Consts/FilterType';
+
 export class IssueList extends React.Component {
     render() {
-        const {issues} = this.props;
+        const { issues, issueFilter } = this.props;
+
+        let filteredIssue = [];
+
+        switch (issueFilter)
+        {
+            case FilterType.completed:
+                filteredIssue = issues.filter(x => x.isCompleted);
+                break;
+            case FilterType.todo:
+                filteredIssue = issues.filter(x => !x.isCompleted);
+                break;
+            case FilterType.all:
+            default:
+                filteredIssue = issues;
+                break;
+        }
 
         return <div>
-            {issues.map(x => 
+            {filteredIssue.map(x => 
                 <Issue 
                     key={x.id}
                     issue={x}
@@ -21,5 +39,6 @@ export class IssueList extends React.Component {
 IssueList.propTypes = {
     issues: PropTypes.array,
     changeIssueStatus: PropTypes.func,
-    deleteIssue: PropTypes.func
+    deleteIssue: PropTypes.func,
+    issueFilter: PropTypes.string
 };
