@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { loadCategories, createCategory, updateCategory, deleteCategory } from '../Actions/CategoriesActions/CategoriesActions';
-import { changeIssueStatus, createIssue, deleteIssue, loadIssues } from '../Actions/IssuesActions/IssuesActions';
+import { changeIssueStatus, createIssue, deleteIssue } from '../Actions/IssuesActions/IssuesActions';
+import { selectCategory } from '../Actions/SelectedCategoryActions/SelectedCategoryActions';
 
 import { Content } from './Content/Content';
 import { Sidebar } from './Sidebar/Sidebar';
@@ -20,7 +21,8 @@ class App extends React.Component {
                 categories={this.props.categoriesStore}
                 createCategory={this.props.createCategory}
                 updateCategory={this.props.updateCategory}
-                deleteCategory={this.props.deleteCategory} />
+                deleteCategory={this.props.deleteCategory}
+                selectCategory={this.props.selectCategory} />
             <Content 
                 issues={this.props.issuesStore}
                 changeIssueStatus={this.props.changeIssueStatus}
@@ -62,8 +64,8 @@ const mapDispatchToProps = dispatch => {
         deleteIssue: (id) => {
             dispatch(deleteIssue(id));
         },
-        loadIssues: (categoryId) => {
-            dispatch(loadIssues(categoryId));
+        selectCategory: (categoryId) => {
+            dispatch(selectCategory(categoryId));
         }
     }
 }

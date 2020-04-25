@@ -15,7 +15,8 @@ export class CategoryList extends React.Component {
                     key={x.id}
                     category={x}
                     updateCategory={this.props.updateCategory}
-                    deleteCategory={this.props.deleteCategory} />)}
+                    deleteCategory={this.props.deleteCategory}
+                    selectCategory={this.props.selectCategory} />)}
         </List>
     }
 }
@@ -23,5 +24,6 @@ export class CategoryList extends React.Component {
 CategoryList.propTypes = {
     categories: PropTypes.array,
     updateCategory: PropTypes.func,
-    deleteCategory: PropTypes.func
+    deleteCategory: PropTypes.func,
+    selectCategory: PropTypes.func
 };

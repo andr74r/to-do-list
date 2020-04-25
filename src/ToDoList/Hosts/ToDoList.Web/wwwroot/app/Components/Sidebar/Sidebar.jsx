@@ -18,7 +18,8 @@ export class Sidebar extends React.Component {
             <CategoryList 
                 categories = {this.props.categories}
                 updateCategory={this.props.updateCategory}
-                deleteCategory={this.props.deleteCategory} />
+                deleteCategory={this.props.deleteCategory}
+                selectCategory={this.props.selectCategory} />
             <Divider />
             <AddCategoryControl 
                 createCategory = {this.props.createCategory}/>
@@ -30,5 +31,6 @@ Sidebar.propTypes = {
     categories: PropTypes.array,
     createCategory: PropTypes.func,
     updateCategory: PropTypes.func,
-    deleteCategory: PropTypes.func
+    deleteCategory: PropTypes.func,
+    selectCategory: PropTypes.func
 };
