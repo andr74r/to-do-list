@@ -32,5 +32,16 @@ namespace ToDoList.Web.ApiControllers
 
             return Ok(viewModel);
         }
+
+        [Route("api/categories")]
+        [HttpPost]
+        public IActionResult CreateCategory(SaveCategoryViewModel saveViewModel)
+        {
+            var category = _categoryService.CreateCategory(saveViewModel.Name, 1);
+
+            var resultViewModel = _mapper.Map<CategoryViewModel>(category);
+
+            return Ok(resultViewModel);
+        }
     }
 }
