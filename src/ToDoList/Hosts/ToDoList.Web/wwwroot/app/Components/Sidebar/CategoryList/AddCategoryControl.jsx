@@ -32,7 +32,7 @@ export class AddCategoryControl extends React.Component {
                         <IconButton onClick={this.onAddCategoryClick}>
                             <AddIcon />
                         </IconButton>
-                        <TextField  onChange={this.onCategoryNameChange}/>
+                        <TextField onChange={this.onCategoryNameChange}/>
                         <IconButton onClick={this.onCancelClick}>
                             <CancelIcon />
                         </IconButton>
