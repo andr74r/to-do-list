@@ -9,6 +9,7 @@ namespace ToDoList.Web.Infrastructure
         public static void Register(IMapperConfigurationExpression cfg)
         {
             cfg.CreateMap<CategoryDto, CategoryViewModel>();
+            cfg.CreateMap<UpdateCategoryViewModel, CategoryDto>();
         }
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { loadCategories, createCategory } from '../Actions/CategoriesActions/CategoriesActions';
+import { loadCategories, createCategory, updateCategory, deleteCategory } from '../Actions/CategoriesActions/CategoriesActions';
 
 import { Content } from './Content/Content';
 import { Sidebar } from './Sidebar/Sidebar';
@@ -22,7 +22,9 @@ class App extends React.Component {
         return <div className="root">
             <Sidebar
                 categories={this.props.categoriesStore}
-                createCategory={this.props.createCategory} />
+                createCategory={this.props.createCategory}
+                updateCategory={this.props.updateCategory}
+                deleteCategory={this.props.deleteCategory} />
             <Content 
                 issues={issues}
                 changeIssueStatus={this.props.changeIssueStatus} />
@@ -43,6 +45,12 @@ const mapDispatchToProps = dispatch => {
         },
         createCategory: (name) => {
             dispatch(createCategory(name));
+        },
+        updateCategory: (category) => {
+            dispatch(updateCategory(category));
+        },
+        deleteCategory: (id) => {
+            dispatch(deleteCategory(id));
         },
         changeIssueStatus: (id) => {
             console.log(id);

@@ -32,6 +32,11 @@ namespace ToDoList.Core.Services.Category
             return _mapper.Map<CategoryDto>(category);
         }
 
+        public void DeleteCategory(int id)
+        {
+            _categoryRepository.DeleteCategory(id);
+        }
+
         public IEnumerable<CategoryDto> GetUserCategories(int userId)
         {
             var categories = _categoryRepository.GetUserCategories(userId);

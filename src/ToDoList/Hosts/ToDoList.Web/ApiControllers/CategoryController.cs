@@ -3,6 +3,7 @@ using ToDoList.Web.ViewModels;
 using ToDoList.Core.Services.Category;
 using System.Linq;
 using AutoMapper;
+using ToDoList.Core.Dto;
 
 namespace ToDoList.Web.ApiControllers
 {
@@ -35,13 +36,30 @@ namespace ToDoList.Web.ApiControllers
 
         [Route("api/categories")]
         [HttpPost]
-        public IActionResult CreateCategory(SaveCategoryViewModel saveViewModel)
+        public IActionResult CreateCategory(CreateCategoryViewModel saveViewModel)
         {
             var category = _categoryService.CreateCategory(saveViewModel.Name, 1);
 
-            var resultViewModel = _mapper.Map<CategoryViewModel>(category);
+            return Ok(_mapper.Map<CategoryViewModel>(category));
+        }
 
-            return Ok(resultViewModel);
+        [Route("api/categories")]
+        [HttpPut]
+        public IActionResult UpdateCategory(UpdateCategoryViewModel updateViewModel)
+        {
+            var category = _categoryService.UpdateCategory(
+                _mapper.Map<CategoryDto>(updateViewModel));
+
+            return Ok(_mapper.Map<CategoryViewModel>(category));
+        }
+
+        [Route("api/categories/{id}")]
+        [HttpDelete]
+        public IActionResult DeleteCategory(int id)
+        {
+            _categoryService.DeleteCategory(id);
+
+            return Ok();
         }
     }
 }

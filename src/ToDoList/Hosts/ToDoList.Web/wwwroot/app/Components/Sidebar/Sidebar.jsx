@@ -16,7 +16,9 @@ export class Sidebar extends React.Component {
                 open
                 className="sidebar">
             <CategoryList 
-                categories = {this.props.categories}/>
+                categories = {this.props.categories}
+                updateCategory={this.props.updateCategory}
+                deleteCategory={this.props.deleteCategory} />
             <Divider />
             <AddCategoryControl 
                 createCategory = {this.props.createCategory}/>
@@ -26,5 +28,7 @@ export class Sidebar extends React.Component {
 
 Sidebar.propTypes = {
     categories: PropTypes.array,
-    createCategory: PropTypes.func
+    createCategory: PropTypes.func,
+    updateCategory: PropTypes.func,
+    deleteCategory: PropTypes.func
 };

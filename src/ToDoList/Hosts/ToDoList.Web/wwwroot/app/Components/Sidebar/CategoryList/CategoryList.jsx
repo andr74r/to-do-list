@@ -13,11 +13,15 @@ export class CategoryList extends React.Component {
             {categories.map(x => 
                 <Category 
                     key={x.id}
-                    category={x} />)}
+                    category={x}
+                    updateCategory={this.props.updateCategory}
+                    deleteCategory={this.props.deleteCategory} />)}
         </List>
     }
 }
 
 CategoryList.propTypes = {
-    categories: PropTypes.array
+    categories: PropTypes.array,
+    updateCategory: PropTypes.func,
+    deleteCategory: PropTypes.func
 };

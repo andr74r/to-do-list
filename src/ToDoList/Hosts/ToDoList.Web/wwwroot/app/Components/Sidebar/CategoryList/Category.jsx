@@ -19,9 +19,12 @@ export class Category extends React.Component {
           name: props.category.name
         };
 
+        this.onCategoryNameChange = this.onCategoryNameChange.bind(this);
         this.onEditClick = this.onEditClick.bind(this);
         this.onCancelClick = this.onCancelClick.bind(this);
         this.onSubmitClick = this.onSubmitClick.bind(this);
+        this.onDeleteClick = this.onDeleteClick.bind(this);
+        this.onNameClick = this.onNameClick.bind(this);
     }
     
     render() {
@@ -31,7 +34,7 @@ export class Category extends React.Component {
             {
                 this.state.isEditing
                     ? <ListItem key={category.id}>
-                        <TextField onChange={this.onCategoryNameChange} value={this.state.name}/>
+                        <TextField value={this.state.name} onChange={this.onCategoryNameChange}/>
                         <IconButton onClick={this.onSubmitClick}>
                             <DoneIcon />
                         </IconButton>
@@ -52,8 +55,13 @@ export class Category extends React.Component {
         </div>
     }
 
+    onCategoryNameChange(e) {
+        this.setState({ name: e.target.value });
+        e.stopPropagation();
+    }
+
     onDeleteClick(e) {
-        console.log('delete');
+        this.props.deleteCategory(this.props.category.id);
         e.stopPropagation();
     }
 
@@ -71,7 +79,11 @@ export class Category extends React.Component {
     }
 
     onSubmitClick(e) {
-        console.log('submit');
+        this.props.updateCategory({
+            id: this.props.category.id,
+            name: this.state.name
+        });
+
         this.setState({ 
             isEditing: false, 
             name: this.props.category.name 
@@ -86,5 +98,7 @@ export class Category extends React.Component {
 }
 
 Category.propTypes = {
-    category: PropTypes.object
+    category: PropTypes.object,
+    updateCategory: PropTypes.func,
+    deleteCategory: PropTypes.func
 };

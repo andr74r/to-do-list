@@ -2,7 +2,7 @@
 
 namespace ToDoList.Web.ViewModels
 {
-    public class SaveCategoryViewModel
+    public class CreateCategoryViewModel
     {
         [JsonProperty("name")]
         public string Name { get; set; }

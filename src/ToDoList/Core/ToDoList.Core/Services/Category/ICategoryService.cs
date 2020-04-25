@@ -10,5 +10,7 @@ namespace ToDoList.Core.Services.Category
         CategoryDto CreateCategory(string name, int userId);
 
         CategoryDto UpdateCategory(CategoryDto categoryDto);
+
+        void DeleteCategory(int id);
     }
 }
