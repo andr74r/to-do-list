@@ -6,7 +6,7 @@ import { loadCategories, createCategory, updateCategory, deleteCategory } from '
 import { Content } from './Content/Content';
 import { Sidebar } from './Sidebar/Sidebar';
 
-import './app.css';
+import '../Styles/app.css';
 
 class App extends React.Component {
     componentDidMount() {

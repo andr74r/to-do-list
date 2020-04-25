@@ -6,7 +6,7 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import TextField from '@material-ui/core/TextField';
 import { IconButton } from '@material-ui/core';
 
-import '../sidebar.css';
+import '../../../Styles/sidebar.css';
 
 export class AddCategoryControl extends React.Component {
 
