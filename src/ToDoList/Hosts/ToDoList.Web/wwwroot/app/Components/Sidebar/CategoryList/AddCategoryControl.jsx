@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import AddIcon from '@material-ui/icons/Add';
+import DoneIcon from '@material-ui/icons/Done';
 import CancelIcon from '@material-ui/icons/Cancel';
 import TextField from '@material-ui/core/TextField';
 import { IconButton } from '@material-ui/core';
@@ -25,19 +26,19 @@ export class AddCategoryControl extends React.Component {
     }
 
     render() {
-        return <div>           
+        return <div className="sidebar__create-category-label">           
             {
                 this.state.isTyping
                     ? <div>
-                        <IconButton onClick={this.onAddCategoryClick}>
-                            <AddIcon />
-                        </IconButton>
                         <TextField onChange={this.onCategoryNameChange}/>
+                        <IconButton onClick={this.onAddCategoryClick}>
+                            <DoneIcon />
+                        </IconButton>
                         <IconButton onClick={this.onCancelClick}>
                             <CancelIcon />
                         </IconButton>
                     </div>
-                    : <div className="sidebar__create-category-label">
+                    : <div>
                         <IconButton onClick={this.onCreateCategoryClick}>
                             <AddIcon />
                         </IconButton>
