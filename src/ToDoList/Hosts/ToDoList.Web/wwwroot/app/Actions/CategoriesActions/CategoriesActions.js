@@ -2,16 +2,24 @@ import { SET_CATEGORIES, ADD_CATEGORY, UPDATE_CATEGORY, DELETE_CATEGORY } from '
 
 import CategoryService from '../../ApiServices/CategoryService';
 
+import { selectCategory } from '../SelectedCategoryActions/SelectedCategoryActions';
+
 const categoryService = new CategoryService();
 
 export const loadCategories = () => {
     return dispatch => {
         categoryService.loadCategories()
             .then(response => {
+                const categories = response.data;
+
                 dispatch({
                     type: SET_CATEGORIES,
-                    categories: response.data
+                    categories: categories
                 });
+
+                if (categories.length) {
+                    dispatch(selectCategory(categories[0].id));
+                }
             })
             .catch(error => {
                 console.log(error);

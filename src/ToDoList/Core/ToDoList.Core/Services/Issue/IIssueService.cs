@@ -9,8 +9,8 @@ namespace ToDoList.Core.Services.Issue
 
         IssueDto CreateIssue(string name, int categoryId);
 
-        IssueDto UpdateIssue(IssueDto issueDto);
+        IssueDto ChangeIssueStatus(int id, bool status);
 
-        void CompleteIssue(int issueId);
+        void DeleteIssue(int id);
     }
 }

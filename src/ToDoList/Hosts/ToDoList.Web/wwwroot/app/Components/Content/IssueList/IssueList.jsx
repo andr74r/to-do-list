@@ -12,12 +12,14 @@ export class IssueList extends React.Component {
                 <Issue 
                     key={x.id}
                     issue={x}
-                    changeIssueStatus={this.props.changeIssueStatus} />)}
+                    changeIssueStatus={this.props.changeIssueStatus}
+                    deleteIssue={this.props.deleteIssue} />)}
         </div>
     }
 }
 
 IssueList.propTypes = {
     issues: PropTypes.array,
-    changeIssueStatus: PropTypes.func
+    changeIssueStatus: PropTypes.func,
+    deleteIssue: PropTypes.func
 };

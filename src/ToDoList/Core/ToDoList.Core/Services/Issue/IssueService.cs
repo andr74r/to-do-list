@@ -19,13 +19,15 @@ namespace ToDoList.Core.Services.Issue
             _mapper = mapper;
         }
 
-        public void CompleteIssue(int issueId)
+        public IssueDto ChangeIssueStatus(int id, bool status)
         {
-            var issue = _issueRepository.GetIssue(issueId);
+            var issue = _issueRepository.GetIssue(id);
 
-            issue.IsCompleted = true;
+            issue.IsCompleted = status;
 
             _issueRepository.SaveIssue(issue);
+
+            return _mapper.Map<IssueDto>(issue);
         }
 
         public IssueDto CreateIssue(string name, int categoryId)
@@ -41,20 +43,16 @@ namespace ToDoList.Core.Services.Issue
             return _mapper.Map<IssueDto>(issue);
         }
 
+        public void DeleteIssue(int id)
+        {
+            _issueRepository.DeleteIssue(id);
+        }
+
         public IEnumerable<IssueDto> GetIssuesByCategoryId(int categoryId)
         {
             var issues = _issueRepository.GetIssuesByCategory(categoryId);
 
             return issues.Select(x => _mapper.Map<IssueDto>(x));
-        }
-
-        public IssueDto UpdateIssue(IssueDto issueDto)
-        {
-            var issue = _mapper.Map<Data.Entities.Issue>(issueDto);
-
-            _issueRepository.SaveIssue(issue);
-
-            return _mapper.Map<IssueDto>(issue);
         }
     }
 }

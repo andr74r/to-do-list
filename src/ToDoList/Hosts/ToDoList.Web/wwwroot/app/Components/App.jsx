@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { loadCategories, createCategory, updateCategory, deleteCategory } from '../Actions/CategoriesActions/CategoriesActions';
+import { changeIssueStatus, createIssue, deleteIssue, loadIssues } from '../Actions/IssuesActions/IssuesActions';
 
 import { Content } from './Content/Content';
 import { Sidebar } from './Sidebar/Sidebar';
@@ -14,11 +15,6 @@ class App extends React.Component {
     }
 
     render() {
-         const issues = [
-            { name: 'clean up room', isCompleted: true, id: 1, categoryId: 1 },
-            { name: 'fix power socket', isCompleted: false, id: 2, categoryId: 1 }
-        ];
-
         return <div className="root">
             <Sidebar
                 categories={this.props.categoriesStore}
@@ -26,15 +22,20 @@ class App extends React.Component {
                 updateCategory={this.props.updateCategory}
                 deleteCategory={this.props.deleteCategory} />
             <Content 
-                issues={issues}
-                changeIssueStatus={this.props.changeIssueStatus} />
+                issues={this.props.issuesStore}
+                changeIssueStatus={this.props.changeIssueStatus}
+                createIssue={this.props.createIssue}
+                deleteIssue={this.props.deleteIssue}
+                selectedCategoryId={this.props.selectedCategoryId} />
         </div>;
     }
 }
 
 const mapStateToProps = state => {
     return {
-        categoriesStore: state.categoriesStore
+        categoriesStore: state.categoriesStore,
+        issuesStore: state.issuesStore,
+        selectedCategoryId: state.selectedCategoryStore
     }
 }
 
@@ -52,8 +53,17 @@ const mapDispatchToProps = dispatch => {
         deleteCategory: (id) => {
             dispatch(deleteCategory(id));
         },
-        changeIssueStatus: (id) => {
-            console.log(id);
+        changeIssueStatus: (id, isCompleted) => {
+            dispatch(changeIssueStatus(id, isCompleted));
+        },
+        createIssue: (categoryId, name) => {
+            dispatch(createIssue(categoryId, name));
+        },
+        deleteIssue: (id) => {
+            dispatch(deleteIssue(id));
+        },
+        loadIssues: (categoryId) => {
+            dispatch(loadIssues(categoryId));
         }
     }
 }

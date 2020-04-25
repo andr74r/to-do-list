@@ -10,6 +10,7 @@ namespace ToDoList.Web.Infrastructure
         {
             cfg.CreateMap<CategoryDto, CategoryViewModel>();
             cfg.CreateMap<UpdateCategoryViewModel, CategoryDto>();
+            cfg.CreateMap<IssueDto, IssueViewModel>();
         }
     }
 }
