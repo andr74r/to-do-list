@@ -3,11 +3,17 @@
   "description": "Webpack configs",
   "version": "1.0.0",
   "author": "andrey",
+  "repository": {
+    "url": "https://github.com/andr74r/to-do-list"
+  },
+  "license": "MIT License",
   "scripts": {
     "dev": "webpack-dev-server --hot --open",
     "build": "webpack"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
     "css-loader": "^3.2.0",
     "prop-types": "^15.6.2",
@@ -27,6 +33,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.0",
+    "jss": "^9.7.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.20.0",
     "webpack-cli": "^3.1.2",

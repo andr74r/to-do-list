@@ -1,0 +1,7 @@
+.sidebar {
+    width: 300px;
+}
+
+.sidebar__create-category-label {
+    padding-right: 10px;
+}

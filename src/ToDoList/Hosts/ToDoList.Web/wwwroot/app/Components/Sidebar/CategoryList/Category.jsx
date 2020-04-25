@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../../../Styles/Sidebar/sidebar';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 export class Category extends React.Component {
     render() {
         const {category} = this.props;
-
-        return <a className="sidebar__category">{category.name}</a>
+        
+        return <ListItem button key={category.id}>
+            <ListItemText primary={category.name} />
+        </ListItem>
     }
 }
 

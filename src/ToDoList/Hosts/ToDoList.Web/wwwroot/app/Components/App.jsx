@@ -6,22 +6,26 @@ import { loadCategories, createCategory } from '../Actions/CategoriesActions/Cat
 import { Content } from './Content/Content';
 import { Sidebar } from './Sidebar/Sidebar';
 
+import './app.css';
+
 class App extends React.Component {
     componentDidMount() {
         this.props.loadCategories();
     }
 
     render() {
-        const issues = [
+         const issues = [
             { name: 'clean up room', isCompleted: true, id: 1, categoryId: 1 },
             { name: 'fix power socket', isCompleted: false, id: 2, categoryId: 1 }
         ];
 
-        return <div>
-            <Sidebar 
-                categories = {this.props.categoriesStore} 
-                createCategory = {this.props.createCategory} />
-            <Content issues = {issues}/>
+        return <div className="root">
+            <Sidebar
+                categories={this.props.categoriesStore}
+                createCategory={this.props.createCategory} />
+            <Content 
+                issues={issues}
+                changeIssueStatus={this.props.changeIssueStatus} />
         </div>;
     }
 }
@@ -39,6 +43,9 @@ const mapDispatchToProps = dispatch => {
         },
         createCategory: (name) => {
             dispatch(createCategory(name));
+        },
+        changeIssueStatus: (id) => {
+            console.log(id);
         }
     }
 }

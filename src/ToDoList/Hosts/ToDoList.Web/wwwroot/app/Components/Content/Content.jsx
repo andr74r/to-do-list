@@ -4,20 +4,22 @@ import PropTypes from 'prop-types';
 import { IssueTypePicker } from './IssueTypePicker/IssueTypePicker';
 import { IssueList } from './IssueList/IssueList';
 
-import '../../Styles/Content/content.css';
+
 
 export class Content extends React.Component {
     render() {
         const { issues } = this.props;
 
-        return <div className="content">
+        return <div>
             <IssueTypePicker />
             <IssueList 
-                issues = {issues}/>
+                issues = {issues}
+                changeIssueStatus = {this.props.changeIssueStatus}/>
         </div>
     }
 }
 
 Content.propTypes = {
-    issues: PropTypes.array
+    issues: PropTypes.array,
+    changeIssueStatus: PropTypes.func
 };

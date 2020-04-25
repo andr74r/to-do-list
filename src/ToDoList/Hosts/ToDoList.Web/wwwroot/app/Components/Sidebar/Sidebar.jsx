@@ -1,21 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CategoryList } from './CategoryList/CategoryList';
-import { AddCategoryControl } from './AddCategoryControl';
+import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
 
-import '../../Styles/Sidebar/sidebar.css'
+import { CategoryList } from './CategoryList/CategoryList';
+import { AddCategoryControl } from './CategoryList/AddCategoryControl';
+
+import './sidebar.css';
 
 export class Sidebar extends React.Component {
     render() {
-        const {categories} = this.props;
-
-        return <div className="sidebar">
+        return <Drawer
+                variant="permanent"
+                open
+                className="sidebar">
             <CategoryList 
-                categories = {categories}/>
+                categories = {this.props.categories}/>
+            <Divider />
             <AddCategoryControl 
                 createCategory = {this.props.createCategory}/>
-        </div>
+        </Drawer>
     }
 }
 
