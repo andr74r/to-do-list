@@ -33,7 +33,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         loadCategories: () => {
-            loadCategories(dispatch);
+            dispatch(loadCategories());
         }
     }
 }
