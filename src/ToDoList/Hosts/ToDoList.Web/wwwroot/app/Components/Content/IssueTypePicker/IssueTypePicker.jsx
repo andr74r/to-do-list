@@ -9,18 +9,18 @@ import FilterType from '../../../Consts/FilterType';
 export class IssueTypePicker extends React.Component {
     render() {
         return <div>
-            <Grid container spacing={3}>
-                <Grid item xs={12} sm={4}>
+            <Grid container xs={24} spacing={5}>
+                <Grid item>
                     <Button variant="contained" color="primary" onClick={() => this.props.setIssueFilter(FilterType.all)}>
                         Tasks
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item>
                     <Button variant="contained" color="primary" onClick={() => this.props.setIssueFilter(FilterType.todo)}>
                         ToDo
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item>
                     <Button variant="contained" color="primary" onClick={() => this.props.setIssueFilter(FilterType.completed)}>
                         Completed
                     </Button>

@@ -77,7 +77,7 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export const Root = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(App)

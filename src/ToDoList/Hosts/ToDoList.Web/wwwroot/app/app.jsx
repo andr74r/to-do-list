@@ -1,6 +1,7 @@
 import './Utils/ArrayExtensions';
 
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { render } from 'react-dom';
 
 import { Provider } from 'react-redux';
@@ -9,13 +10,21 @@ import thunk from 'redux-thunk';
 
 import { rootReducer } from './Reducers/RootReducer';
 
-import { Root } from './Components/App';
+import App from './Components/App';
+import Login from './Components/Account/Login/Login';
+import Register from './Components/Account/Register/Register';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 render(
     <Provider store={store}>
-        <Root />
+        <BrowserRouter>
+            <div>
+                <Route exact path="/" component={App} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+            </div>
+        </BrowserRouter>
     </Provider>,
     document.getElementById("content")
 )
