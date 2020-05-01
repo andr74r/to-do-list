@@ -2,7 +2,7 @@
 
 namespace ToDoList.Web.Controllers
 {
-    public class IssueController : Controller
+    public class ContentController : Controller
     {
         public IActionResult Index()
         {
