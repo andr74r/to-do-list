@@ -2,6 +2,7 @@
 using AutoMapper;
 using ToDoList.Core.Infrastructure;
 using ToDoList.Data.Memory.Infrastructure;
+using ToDoList.Security.Core.Services.User;
 
 namespace ToDoList.Web.Infrastructure
 {
@@ -14,6 +15,8 @@ namespace ToDoList.Web.Infrastructure
             builder.RegisterModule(new AutofacDataMemoryModule());
 
             builder.RegisterModule(new AutofacCoreModule());
+
+            builder.RegisterType<UserService>().As<IUserService>();
         }
     }
 }

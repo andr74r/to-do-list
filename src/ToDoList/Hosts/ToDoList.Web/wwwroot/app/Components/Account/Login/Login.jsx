@@ -8,7 +8,7 @@ import { Link } from '@material-ui/core';
 class Login extends Component {
     render() {
         return (
-            <Grid container alignItems="center" direction="column" xs={24} spacing={3}>
+            <Grid container alignItems="center" direction="column" spacing={3}>
                 <Grid item>
                     <h2>Sign in</h2>
                 </Grid>
@@ -22,7 +22,7 @@ class Login extends Component {
                     <Button variant="contained" color="primary">Sign In</Button>
                 </Grid>
                 <Grid item>
-                    <Link href="/Register">Create new account</Link>
+                    <Link href="/register">Create new account</Link>
                 </Grid>
             </Grid>
         );

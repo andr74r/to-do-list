@@ -8,7 +8,7 @@ import { Link } from '@material-ui/core';
 class Register extends Component {
     render() {
         return (
-            <Grid container alignItems="center" direction="column" xs={24} spacing={3}>
+            <Grid container alignItems="center" direction="column" spacing={3}>
                 <Grid item>
                     <h2>Create new account</h2>
                 </Grid>
@@ -28,7 +28,7 @@ class Register extends Component {
                     <Button variant="contained" color="primary">Sign Up</Button>
                 </Grid>
                 <Grid item>
-                    <Link href="/Login">Sing In</Link>
+                    <Link href="/login">Sing In</Link>
                 </Grid>
             </Grid>
         );

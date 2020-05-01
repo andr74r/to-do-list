@@ -28,7 +28,7 @@ namespace ToDoList.Web
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
-                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/login");
                 });
         }
 

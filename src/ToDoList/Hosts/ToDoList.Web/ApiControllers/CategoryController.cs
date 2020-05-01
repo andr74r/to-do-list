@@ -4,9 +4,11 @@ using ToDoList.Core.Services.Category;
 using System.Linq;
 using AutoMapper;
 using ToDoList.Core.Dto;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ToDoList.Web.ApiControllers
 {
+    [Authorize]
     [ApiController]
     public class CategoryController : ControllerBase
     {

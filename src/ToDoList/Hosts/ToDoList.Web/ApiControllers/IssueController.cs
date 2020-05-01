@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using ToDoList.Core.Services.Issue;
@@ -6,6 +7,7 @@ using ToDoList.Web.ViewModels;
 
 namespace ToDoList.Web.ApiControllers
 {
+    [Authorize]
     [ApiController]
     public class IssueController : ControllerBase
     {

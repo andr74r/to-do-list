@@ -7,9 +7,9 @@ namespace ToDoList.Security.Core.Services.User
     {
         private readonly IUserRepository _userRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService()
         {
-            _userRepository = userRepository;
+            _userRepository = null;
         }
 
         public UserDto CreateUser(UserDto userDto)
