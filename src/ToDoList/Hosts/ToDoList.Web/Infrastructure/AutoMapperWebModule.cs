@@ -16,6 +16,8 @@ namespace ToDoList.Web.Infrastructure
 
             cfg.CreateMap<LoginViewModel, FindUserByPasswordDto>();
             cfg.CreateMap<RegisterViewModel, CreateUserDto>();
+            cfg.CreateMap<RegisterViewModel, FindUserDto>();
+            cfg.CreateMap<UserDto, UserViewModel>();
         }
     }
 }

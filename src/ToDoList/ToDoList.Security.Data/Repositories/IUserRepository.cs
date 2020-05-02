@@ -6,6 +6,6 @@ namespace ToDoList.Security.Data.Repositories
     {
         User FindUser(string email, string phone);
 
-        User CreateUser(User user);
+        void CreateUser(User user);
     }
 }

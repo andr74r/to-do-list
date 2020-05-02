@@ -52,6 +52,12 @@ class Login extends Component {
 
     onSignInClick() {
         this.accountService.login(this.state.login, this.state.password)
+            .then(response => {
+                if (response.data.isLoggedIn)
+                {
+                    this.props.history.push('/');
+                }
+            })
             .catch(error => {
                 console.log(error);
             });

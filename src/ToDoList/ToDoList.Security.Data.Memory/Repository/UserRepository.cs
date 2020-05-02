@@ -9,7 +9,7 @@ namespace ToDoList.Security.Data.Memory.Repository
         private readonly object _syncObj = new object();
         private static int _currentId = 0;
 
-        public User CreateUser(User user)
+        public void CreateUser(User user)
         {
             lock (_syncObj)
             {
@@ -18,8 +18,6 @@ namespace ToDoList.Security.Data.Memory.Repository
                 user.Id = _currentId;
 
                 Context.Users.Add(user);
-
-                return user;
             }
         }
 

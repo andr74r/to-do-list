@@ -32,6 +32,8 @@ namespace ToDoList.Security.Core.Services.User
 
             user.PasswordHash = _hashProvider.GetHash(userDto.Password);
 
+            _userRepository.CreateUser(user);
+
             return _mapper.Map<UserDto>(user);
         }
 

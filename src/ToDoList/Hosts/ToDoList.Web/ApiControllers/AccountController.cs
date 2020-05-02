@@ -24,42 +24,55 @@ namespace ToDoList.Web.ApiControllers
 
         [Route("api/account/login")]
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel viewModel)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
             var user = _userService.FindUser(
-                _mapper.Map<FindUserByPasswordDto>(viewModel));
+                _mapper.Map<FindUserByPasswordDto>(loginViewModel));
+
+            var resultVm = new UserViewModel();
 
             if (user != null)
             {
                 await HttpContext.Authenticate(user);
-                return Ok();
+
+                _mapper.Map(user, resultVm);
+
+                resultVm.IsLoggedIn = true;
             }
             else
             {
-                return NotFound();
+                resultVm.IsLoggedIn = false;
             }
+
+            return Ok(resultVm);
         }
 
         [Route("api/account/register")]
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel viewModel)
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
             var user = _userService.FindUser(
-                _mapper.Map<FindUserDto>(viewModel));
+                _mapper.Map<FindUserDto>(registerViewModel));
+
+            var resultVm = new UserViewModel();
 
             if (user == null)
             {
                 user = _userService.CreateUser(
-                    _mapper.Map<CreateUserDto>(viewModel));
+                    _mapper.Map<CreateUserDto>(registerViewModel));
 
                 await HttpContext.Authenticate(user);
 
-                return Redirect("/");
+                _mapper.Map(user, resultVm);
+
+                resultVm.IsLoggedIn = true;
             }
             else
             {
-                return Ok();
+                resultVm.IsLoggedIn = false;
             }
+
+            return Ok(resultVm);
         }
 
         [Route("api/account/logout")]
@@ -67,7 +80,8 @@ namespace ToDoList.Web.ApiControllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOut();
-            return Redirect("/Account/Login");
+
+            return Ok();
         }
     }
 }
