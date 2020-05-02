@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using ToDoList.Core.Services.DefaultCategoryCreator;
 using ToDoList.Security.Core.Dto;
 using ToDoList.Security.Core.Services.User;
 using ToDoList.Web.Extensions;
@@ -12,13 +13,16 @@ namespace ToDoList.Web.ApiControllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IDefaultCategoryCreator _defaultCategoryCreator;
         private readonly IMapper _mapper;
 
         public AccountController(
             IUserService userService,
+            IDefaultCategoryCreator defaultCategoryCreator,
             IMapper mapper)
         {
             _userService = userService;
+            _defaultCategoryCreator = defaultCategoryCreator;
             _mapper = mapper;
         }
 
@@ -66,6 +70,8 @@ namespace ToDoList.Web.ApiControllers
                 _mapper.Map(user, resultVm);
 
                 resultVm.IsLoggedIn = true;
+
+                _defaultCategoryCreator.CreateDefaultCategories(user.Id);
             }
             else
             {

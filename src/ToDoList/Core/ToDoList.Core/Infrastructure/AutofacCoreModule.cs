@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using ToDoList.Core.Services.Category;
+using ToDoList.Core.Services.DefaultCategoryCreator;
 using ToDoList.Core.Services.Issue;
 
 namespace ToDoList.Core.Infrastructure
@@ -10,6 +11,7 @@ namespace ToDoList.Core.Infrastructure
         {
             builder.RegisterType<CategoryService>().As<ICategoryService>();
             builder.RegisterType<IssueService>().As<IIssueService>();
+            builder.RegisterType<DefaultCategoryCreator>().As<IDefaultCategoryCreator>();
         }
     }
 }
