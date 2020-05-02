@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using ToDoList.Security.Core.Dto;
+using ToDoList.Web.Extensions.Consts;
 
 namespace ToDoList.Web.Extensions
 {
@@ -14,9 +15,9 @@ namespace ToDoList.Web.Extensions
         {
             var claims = new List<Claim>
             {
-                new Claim("id", user.Id.ToString()),
-                new Claim("phone", user.Phone),
-                new Claim("email", user.Email),
+                new Claim(ClaimsIdentityConsts.UserId, user.Id.ToString()),
+                new Claim(ClaimsIdentityConsts.UserPhone, user.Phone),
+                new Claim(ClaimsIdentityConsts.UserEmail, user.Email),
                 new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email)
             };
 

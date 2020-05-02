@@ -5,6 +5,7 @@ using System.Linq;
 using AutoMapper;
 using ToDoList.Core.Dto;
 using Microsoft.AspNetCore.Authorization;
+using ToDoList.Web.Extensions;
 
 namespace ToDoList.Web.ApiControllers
 {
@@ -27,7 +28,7 @@ namespace ToDoList.Web.ApiControllers
         [HttpGet]
         public IActionResult GetCategories()
         {
-            var categories = _categoryService.GetUserCategories(1);
+            var categories = _categoryService.GetUserCategories(User.Identity.UserId());
 
             var viewModel = categories
                 .Select(c => _mapper.Map<CategoryViewModel>(c))
@@ -40,7 +41,7 @@ namespace ToDoList.Web.ApiControllers
         [HttpPost]
         public IActionResult CreateCategory(CreateCategoryViewModel saveViewModel)
         {
-            var category = _categoryService.CreateCategory(saveViewModel.Name, 1);
+            var category = _categoryService.CreateCategory(saveViewModel.Name, User.Identity.UserId());
 
             return Ok(_mapper.Map<CategoryViewModel>(category));
         }

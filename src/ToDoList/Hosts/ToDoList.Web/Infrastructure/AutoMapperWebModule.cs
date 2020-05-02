@@ -14,7 +14,10 @@ namespace ToDoList.Web.Infrastructure
             cfg.CreateMap<UpdateCategoryViewModel, CategoryDto>();
             cfg.CreateMap<IssueDto, IssueViewModel>();
 
-            cfg.CreateMap<LoginViewModel, FindUserByPasswordDto>();
+            cfg.CreateMap<LoginViewModel, FindUserByPasswordDto>()
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Login))
+                .ForMember(dest => dest.Phone, opt => opt.MapFrom(src => src.Login));
+
             cfg.CreateMap<RegisterViewModel, CreateUserDto>();
             cfg.CreateMap<RegisterViewModel, FindUserDto>();
             cfg.CreateMap<UserDto, UserViewModel>();
