@@ -8,6 +8,7 @@ using ToDoList.Web.ViewModels.Account;
 
 namespace ToDoList.Web.ApiControllers
 {
+    [ApiController]
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
@@ -21,6 +22,7 @@ namespace ToDoList.Web.ApiControllers
             _mapper = mapper;
         }
 
+        [Route("api/account/login")]
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel viewModel)
         {
@@ -38,6 +40,7 @@ namespace ToDoList.Web.ApiControllers
             }
         }
 
+        [Route("api/account/register")]
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel viewModel)
         {
@@ -47,7 +50,7 @@ namespace ToDoList.Web.ApiControllers
             if (user == null)
             {
                 user = _userService.CreateUser(
-                    _mapper.Map<UserDto>(viewModel));
+                    _mapper.Map<CreateUserDto>(viewModel));
 
                 await HttpContext.Authenticate(user);
 
@@ -59,6 +62,8 @@ namespace ToDoList.Web.ApiControllers
             }
         }
 
+        [Route("api/account/logout")]
+        [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOut();

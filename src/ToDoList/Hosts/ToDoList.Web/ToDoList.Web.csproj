@@ -15,6 +15,7 @@
     <ProjectReference Include="..\..\Data\ToDoList.Data.Memory\ToDoList.Data.Memory.csproj" />
     <ProjectReference Include="..\..\Data\ToDoList.Data\ToDoList.Data.csproj" />
     <ProjectReference Include="..\..\ToDoList.Security.Core\ToDoList.Security.Core.csproj" />
+    <ProjectReference Include="..\..\ToDoList.Security.Data.Memory\ToDoList.Security.Data.Memory.csproj" />
   </ItemGroup>
 
   <ItemGroup>

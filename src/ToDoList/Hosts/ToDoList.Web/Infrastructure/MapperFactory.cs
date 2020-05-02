@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ToDoList.Core.Infrastructure;
+using ToDoList.Security.Core.Infrastructure;
 
 namespace ToDoList.Web.Infrastructure
 {
@@ -16,6 +17,7 @@ namespace ToDoList.Web.Infrastructure
             {
                 AutoMapperCoreModule.Register(cfg);
                 AutoMapperWebModule.Register(cfg);
+                AutoMapperSecurityCoreModule.Register(cfg);
             });
 
             return configuration;

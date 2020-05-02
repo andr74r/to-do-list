@@ -8,6 +8,6 @@ namespace ToDoList.Security.Core.Services.User
 
         UserDto FindUser(FindUserDto request);
 
-        UserDto CreateUser(UserDto userDto);
+        UserDto CreateUser(CreateUserDto userDto);
     }
 }
