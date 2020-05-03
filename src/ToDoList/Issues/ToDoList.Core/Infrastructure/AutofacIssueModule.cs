@@ -8,7 +8,7 @@ using ToDoList.Data.Entities;
 
 namespace ToDoList.Core.Infrastructure
 {
-    public class AutofacCoreModule : Module
+    public class AutofacIssueModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

@@ -15,7 +15,7 @@ namespace ToDoList.Web.Infrastructure
         {
             var configuration = new MapperConfiguration(cfg =>
             {
-                AutoMapperCoreModule.Register(cfg);
+                AutoMapperIssueModule.Register(cfg);
                 AutoMapperWebModule.Register(cfg);
                 AutoMapperSecurityCoreModule.Register(cfg);
             });

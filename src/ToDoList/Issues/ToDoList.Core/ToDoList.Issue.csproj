@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\ToDoList.Data\ToDoList.Data.csproj" />
-    <ProjectReference Include="..\ToDoList.Common\ToDoList.Common.csproj" />
+    <ProjectReference Include="..\..\Core\ToDoList.Common\ToDoList.Common.csproj" />
+    <ProjectReference Include="..\ToDoList.Data\ToDoList.Issue.Data.csproj" />
   </ItemGroup>
 
 </Project>

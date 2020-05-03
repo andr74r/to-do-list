@@ -5,7 +5,7 @@ using ToDoList.Data.Repositories.IssueRepository;
 
 namespace ToDoList.Data.Memory.Infrastructure
 {
-    public class AutofacDataMemoryModule : Module
+    public class AutofacIssueDataMemoryModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

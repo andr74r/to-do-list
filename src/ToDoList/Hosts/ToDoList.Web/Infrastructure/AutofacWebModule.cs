@@ -13,9 +13,9 @@ namespace ToDoList.Web.Infrastructure
         {
             builder.Register(ctx => MapperFactory.CreateMapper()).As<IMapper>();
 
-            builder.RegisterModule(new AutofacDataMemoryModule());
+            builder.RegisterModule(new AutofacIssueDataMemoryModule());
 
-            builder.RegisterModule(new AutofacCoreModule());
+            builder.RegisterModule(new AutofacIssueModule());
 
             builder.RegisterModule(new AutofacSecurityCoreModule());
 

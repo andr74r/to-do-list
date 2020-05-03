@@ -4,7 +4,7 @@ using ToDoList.Data.Entities;
 
 namespace ToDoList.Core.Infrastructure
 {
-    public static class AutoMapperCoreModule
+    public static class AutoMapperIssueModule
     {
         public static void Register(IMapperConfigurationExpression cfg)
         {
