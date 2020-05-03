@@ -4,7 +4,7 @@ module.exports = {
     mode: 'development',
     entry: "./app/app.jsx",
     output:{
-        path: path.resolve(__dirname, './bundles'),
+        path: path.resolve(__dirname, '../ToDoList/Hosts/ToDoList.Web/wwwroot/bundles'),
         publicPath: '/bundles/',
         filename: "bundle.js"
     },
