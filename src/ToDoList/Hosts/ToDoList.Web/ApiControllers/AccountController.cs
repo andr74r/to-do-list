@@ -89,5 +89,21 @@ namespace ToDoList.Web.ApiControllers
 
             return Ok();
         }
+
+        [Route("api/account/user")]
+        [HttpGet]
+        public IActionResult GetUser()
+        {
+            var userVm = new UserViewModel();
+
+            if (User.Identity.IsAuthenticated)
+            {
+                userVm.IsLoggedIn = true;
+                userVm.Email = User.Identity.Email();
+                userVm.Phone = User.Identity.Phone();
+            }
+
+            return Ok(userVm);
+        }
     }
 }

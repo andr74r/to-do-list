@@ -14,6 +14,16 @@ namespace ToDoList.Web.Extensions
             return int.Parse(value);
         }
 
+        public static string Email(this IIdentity identity)
+        {
+            return identity.GetClaimValue(ClaimsIdentityConsts.UserEmail);
+        }
+
+        public static string Phone(this IIdentity identity)
+        {
+            return identity.GetClaimValue(ClaimsIdentityConsts.UserPhone);
+        }
+
         private static string GetClaimValue(this IIdentity identity, string type)
         {
             if (identity is ClaimsIdentity claimsIdentity)

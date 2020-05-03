@@ -19,4 +19,8 @@ export default class AccountService {
     logout() {
         return axios.post('api/account/logout');
     }
+
+    getUser() {
+        return axios.get('api/account/user');
+    }
 }

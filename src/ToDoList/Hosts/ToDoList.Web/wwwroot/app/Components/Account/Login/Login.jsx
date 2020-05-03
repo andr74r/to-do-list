@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
@@ -7,6 +8,8 @@ import Link from '@material-ui/core/Link';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import AccountService from '../../../ApiServices/AccountService';
+
+import { setUser } from '../../../Actions/UserActions/UserActions';
 
 class Login extends Component {
     constructor(props) {
@@ -64,7 +67,8 @@ class Login extends Component {
             .then(response => {
                 if (response.data.isLoggedIn)
                 {
-                    this.goToHomePage();
+                    this.props.setUser(response.data);
+                    this.toHomePage();
                 }
                 else {
                     this.setServerError('Incorrect login or password');
@@ -81,9 +85,20 @@ class Login extends Component {
         });
     }
 
-    goToHomePage() {
+    toHomePage() {
         this.props.history.push('/');
     }
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => {
+    return {
+        setUser: (user) => {
+            dispatch(setUser(user));
+        }
+    }
+}
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(Login)
