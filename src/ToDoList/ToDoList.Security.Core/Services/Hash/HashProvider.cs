@@ -13,6 +13,11 @@ namespace ToDoList.Security.Core.Services.Hash
 
         public string GetHash(string input)
         {
+            if (input == null)
+            {
+                return null;
+            }
+
             return Convert.ToBase64String(KeyDerivation.Pbkdf2(
                 password: input,
                 salt: _salt,

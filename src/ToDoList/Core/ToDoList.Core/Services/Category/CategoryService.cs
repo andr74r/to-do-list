@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using ToDoList.Common;
 using ToDoList.Core.Dto;
 using ToDoList.Data.Repositories.CategoryRepository;
 
@@ -10,13 +12,16 @@ namespace ToDoList.Core.Services.Category
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
+        private readonly IEntityValidator<Data.Entities.Category> _validator;
 
         public CategoryService(
             ICategoryRepository categoryRepository,
-            IMapper mapper)
+            IMapper mapper,
+            IEntityValidator<Data.Entities.Category> validator)
         {
             _categoryRepository = categoryRepository;
             _mapper = mapper;
+            _validator = validator;
         }
 
         public CategoryDto CreateCategory(string name, int userId)
@@ -26,6 +31,11 @@ namespace ToDoList.Core.Services.Category
                 UserId = userId,
                 Name = name
             };
+
+            if (!_validator.IsValid(category))
+            {
+                throw new ArgumentException("Category is invalid");
+            }
 
             _categoryRepository.SaveCategory(category);
 

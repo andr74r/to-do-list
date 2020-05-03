@@ -1,6 +1,9 @@
 ﻿using Autofac;
+using ToDoList.Common;
 using ToDoList.Security.Core.Services.Hash;
 using ToDoList.Security.Core.Services.User;
+using ToDoList.Security.Core.Validators;
+using ToDoList.Security.Data.Entities;
 
 namespace ToDoList.Security.Core.Infrastructure
 {
@@ -10,6 +13,7 @@ namespace ToDoList.Security.Core.Infrastructure
         {
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<HashProvider>().As<IHashProvider>();
+            builder.RegisterType<UserValidator>().As<IEntityValidator<User>>();
         }
     }
 }

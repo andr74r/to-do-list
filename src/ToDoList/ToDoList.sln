@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Security.Core", "T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Security.Data", "ToDoList.Security.Data\ToDoList.Security.Data.csproj", "{A64C5461-AF89-46C0-BDB7-4A13A979BF05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Security.Data.Memory", "ToDoList.Security.Data.Memory\ToDoList.Security.Data.Memory.csproj", "{C31A2007-758C-4584-BC9E-4558DC78CD4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Security.Data.Memory", "ToDoList.Security.Data.Memory\ToDoList.Security.Data.Memory.csproj", "{C31A2007-758C-4584-BC9E-4558DC78CD4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Common", "ToDoList.Common\ToDoList.Common.csproj", "{B0DDBF87-3A1A-48F4-9FDE-F60165596635}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{C31A2007-758C-4584-BC9E-4558DC78CD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C31A2007-758C-4584-BC9E-4558DC78CD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C31A2007-758C-4584-BC9E-4558DC78CD4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0DDBF87-3A1A-48F4-9FDE-F60165596635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0DDBF87-3A1A-48F4-9FDE-F60165596635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DDBF87-3A1A-48F4-9FDE-F60165596635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0DDBF87-3A1A-48F4-9FDE-F60165596635}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{AFE7910E-B915-42E4-A14A-6E97673BBFE3} = {B82023EA-C193-4F8E-B26C-3E84BA8A7417}
 		{A64C5461-AF89-46C0-BDB7-4A13A979BF05} = {B82023EA-C193-4F8E-B26C-3E84BA8A7417}
 		{C31A2007-758C-4584-BC9E-4558DC78CD4D} = {B82023EA-C193-4F8E-B26C-3E84BA8A7417}
+		{B0DDBF87-3A1A-48F4-9FDE-F60165596635} = {CF08738B-38DF-4720-8EE8-20DCA1CCA0AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8FFBB43C-E97F-4340-97EF-B632481EFE7A}

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using System;
+using ToDoList.Common;
 using ToDoList.Security.Core.Dto;
 using ToDoList.Security.Core.Services.Hash;
 using ToDoList.Security.Data.Repositories;
@@ -10,15 +12,18 @@ namespace ToDoList.Security.Core.Services.User
         private readonly IUserRepository _userRepository;
         private readonly IHashProvider _hashProvider;
         private readonly IMapper _mapper;
+        private readonly IEntityValidator<Data.Entities.User> _validator;
 
         public UserService(
             IUserRepository userRepository, 
             IHashProvider hashProvider,
-            IMapper mapper)
+            IMapper mapper,
+            IEntityValidator<Data.Entities.User> validator)
         {
             _userRepository = userRepository;
             _hashProvider = hashProvider;
             _mapper = mapper;
+            _validator = validator;
         }
 
         public UserService()
@@ -31,6 +36,11 @@ namespace ToDoList.Security.Core.Services.User
             var user = _mapper.Map<Data.Entities.User>(userDto);
 
             user.PasswordHash = _hashProvider.GetHash(userDto.Password);
+
+            if (!_validator.IsValid(user))
+            {
+                throw new ArgumentException("User is invalid");
+            }
 
             _userRepository.CreateUser(user);
 

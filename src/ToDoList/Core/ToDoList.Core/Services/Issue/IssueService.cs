@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using ToDoList.Common;
 using ToDoList.Core.Dto;
 using ToDoList.Data.Repositories.IssueRepository;
 
@@ -10,13 +12,16 @@ namespace ToDoList.Core.Services.Issue
     {
         private readonly IIssueRepository _issueRepository;
         private readonly IMapper _mapper;
+        private readonly IEntityValidator<Data.Entities.Issue> _validator;
 
         public IssueService(
             IIssueRepository issueRepository,
-            IMapper mapper)
+            IMapper mapper,
+            IEntityValidator<Data.Entities.Issue> validator)
         {
             _issueRepository = issueRepository;
             _mapper = mapper;
+            _validator = validator;
         }
 
         public IssueDto ChangeIssueStatus(int id, bool status)
@@ -37,6 +42,11 @@ namespace ToDoList.Core.Services.Issue
                 CategoryId = categoryId,
                 Name = name
             };
+
+            if (!_validator.IsValid(issue))
+            {
+                throw new ArgumentException("Issue is invalid");
+            }
 
             _issueRepository.SaveIssue(issue);
 
