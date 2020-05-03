@@ -1,7 +1,7 @@
-﻿using ToDoList.Common;
-using ToDoList.Data.Entities;
+﻿using ToDoList.Common.Validators;
+using ToDoList.Issue.Data.Entities;
 
-namespace ToDoList.Core.Validators
+namespace ToDoList.Issue.Core.Validators
 {
     internal class CategoryValidator : IEntityValidator<Category>
     {

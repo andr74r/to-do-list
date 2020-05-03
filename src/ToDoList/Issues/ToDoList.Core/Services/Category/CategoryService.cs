@@ -2,11 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ToDoList.Common;
-using ToDoList.Core.Dto;
-using ToDoList.Data.Repositories.CategoryRepository;
+using ToDoList.Common.Validators;
+using ToDoList.Issue.Core.Dto;
+using ToDoList.Issue.Data.Repositories;
 
-namespace ToDoList.Core.Services.Category
+namespace ToDoList.Issue.Core.Services.Category
 {
     public class CategoryService : ICategoryService
     {

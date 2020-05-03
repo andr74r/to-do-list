@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using ToDoList.Core.Services.DefaultCategoryCreator;
+using ToDoList.Issue.Core.Services.DefaultCategoryCreator;
 using ToDoList.Security.Core.Dto;
 using ToDoList.Security.Core.Services.User;
 using ToDoList.Web.Extensions;

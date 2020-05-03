@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ToDoList.Web.ViewModels;
-using ToDoList.Core.Services.Category;
 using System.Linq;
 using AutoMapper;
-using ToDoList.Core.Dto;
 using Microsoft.AspNetCore.Authorization;
 using ToDoList.Web.Extensions;
+using ToDoList.Issue.Core.Services.Category;
+using ToDoList.Web.ViewModels.Category;
+using ToDoList.Issue.Core.Dto;
 
 namespace ToDoList.Web.ApiControllers
 {

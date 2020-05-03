@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ToDoList.Core.Dto;
+using ToDoList.Issue.Core.Dto;
 
-namespace ToDoList.Core.Services.Category
+namespace ToDoList.Issue.Core.Services.Category
 {
     public interface ICategoryService
     {

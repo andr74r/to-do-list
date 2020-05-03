@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using ToDoList.Common;
+using ToDoList.Common.Validators;
 using ToDoList.Security.Data.Entities;
 
 namespace ToDoList.Security.Core.Validators

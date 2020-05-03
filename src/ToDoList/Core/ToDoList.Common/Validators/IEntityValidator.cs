@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Common
+﻿namespace ToDoList.Common.Validators
 {
     public interface IEntityValidator<TEntity>
     {

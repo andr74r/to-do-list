@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Core.Dto
+﻿namespace ToDoList.Issue.Core.Dto
 {
     public class IssueDto
     {

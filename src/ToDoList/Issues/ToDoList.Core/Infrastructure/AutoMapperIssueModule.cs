@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using ToDoList.Core.Dto;
-using ToDoList.Data.Entities;
+using ToDoList.Issue.Core.Dto;
+using ToDoList.Issue.Data.Entities;
 
-namespace ToDoList.Core.Infrastructure
+namespace ToDoList.Issue.Core.Infrastructure
 {
     public static class AutoMapperIssueModule
     {
@@ -10,8 +10,8 @@ namespace ToDoList.Core.Infrastructure
         {
             cfg.CreateMap<CategoryDto, Category>();
             cfg.CreateMap<Category, CategoryDto>();
-            cfg.CreateMap<IssueDto, Issue>();
-            cfg.CreateMap<Issue, IssueDto>();
+            cfg.CreateMap<IssueDto, Data.Entities.Issue>();
+            cfg.CreateMap<Data.Entities.Issue, IssueDto>();
         }
     }
 }

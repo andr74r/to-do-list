@@ -1,7 +1,7 @@
-﻿using ToDoList.Core.Services.Category;
-using ToDoList.Core.Services.Issue;
+﻿using ToDoList.Issue.Core.Services.Category;
+using ToDoList.Issue.Core.Services.Issue;
 
-namespace ToDoList.Core.Services.DefaultCategoryCreator
+namespace ToDoList.Issue.Core.Services.DefaultCategoryCreator
 {
     public class DefaultCategoryCreator : IDefaultCategoryCreator
     {

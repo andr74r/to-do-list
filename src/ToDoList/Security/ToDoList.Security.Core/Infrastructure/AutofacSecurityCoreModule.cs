@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using ToDoList.Common;
+using ToDoList.Common.Validators;
 using ToDoList.Security.Core.Services.Hash;
 using ToDoList.Security.Core.Services.User;
 using ToDoList.Security.Core.Validators;

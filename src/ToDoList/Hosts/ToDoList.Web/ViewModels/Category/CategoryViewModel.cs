@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ToDoList.Web.ViewModels
+namespace ToDoList.Web.ViewModels.Category
 {
     public class CategoryViewModel
     {

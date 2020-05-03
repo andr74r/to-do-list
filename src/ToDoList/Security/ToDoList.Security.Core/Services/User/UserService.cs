@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using System;
-using ToDoList.Common;
+using ToDoList.Common.Validators;
 using ToDoList.Security.Core.Dto;
 using ToDoList.Security.Core.Services.Hash;
 using ToDoList.Security.Data.Repositories;

@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ToDoList.Data.Entities;
-using ToDoList.Data.Repositories.IssueRepository;
+using ToDoList.Issue.Data.Repositories;
 
-namespace ToDoList.Data.Memory.Repositories
+namespace ToDoList.Issue.Data.Memory.Repositories
 {
     public class IssueRepository : IIssueRepository
     {
@@ -18,17 +17,17 @@ namespace ToDoList.Data.Memory.Repositories
             }
         }
 
-        public Issue GetIssue(int issueId)
+        public Entities.Issue GetIssue(int issueId)
         {
             return Context.Issues.SingleOrDefault(x => x.Id == issueId);
         }
 
-        public IEnumerable<Issue> GetIssuesByCategory(int categoryId)
+        public IEnumerable<Entities.Issue> GetIssuesByCategory(int categoryId)
         {
             return Context.Issues.Where(x => x.CategoryId == categoryId);
         }
 
-        public void SaveIssue(Issue issue)
+        public void SaveIssue(Entities.Issue issue)
         {
             lock (_syncObj)
             {

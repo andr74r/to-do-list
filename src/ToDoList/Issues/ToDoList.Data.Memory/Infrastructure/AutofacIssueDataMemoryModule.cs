@@ -1,9 +1,8 @@
 ﻿using Autofac;
-using ToDoList.Data.Memory.Repositories;
-using ToDoList.Data.Repositories.CategoryRepository;
-using ToDoList.Data.Repositories.IssueRepository;
+using ToDoList.Issue.Data.Memory.Repositories;
+using ToDoList.Issue.Data.Repositories;
 
-namespace ToDoList.Data.Memory.Infrastructure
+namespace ToDoList.Issue.Data.Memory.Infrastructure
 {
     public class AutofacIssueDataMemoryModule : Module
     {

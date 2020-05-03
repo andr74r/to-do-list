@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Common", "Core\ToD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Issue", "Issue", "{F7CAD6AD-BBBA-40AB-9173-C67C1FA860F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Issue", "Issues\ToDoList.Core\ToDoList.Issue.csproj", "{669DC757-72EE-4BC3-BD6B-7BE92B8B233B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Issue.Core", "Issues\ToDoList.Core\ToDoList.Issue.Core.csproj", "{669DC757-72EE-4BC3-BD6B-7BE92B8B233B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Issue.Data", "Issues\ToDoList.Data\ToDoList.Issue.Data.csproj", "{DFEFB07C-55AB-4E72-AB13-5B4DE4E1431E}"
 EndProject

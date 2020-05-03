@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Data.Entities
+﻿namespace ToDoList.Issue.Data.Entities
 {
     public class Issue
     {

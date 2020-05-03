@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using AutoMapper;
-using ToDoList.Core.Infrastructure;
-using ToDoList.Data.Memory.Infrastructure;
+using ToDoList.Issue.Core.Infrastructure;
+using ToDoList.Issue.Data.Memory.Infrastructure;
 using ToDoList.Security.Core.Infrastructure;
 using ToDoList.Security.Data.Memory.Infrastructure;
 

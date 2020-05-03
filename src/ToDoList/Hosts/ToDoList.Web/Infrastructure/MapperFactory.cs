@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ToDoList.Core.Infrastructure;
+using ToDoList.Issue.Core.Infrastructure;
 using ToDoList.Security.Core.Infrastructure;
 
 namespace ToDoList.Web.Infrastructure

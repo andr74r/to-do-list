@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ToDoList.Core.Dto;
+using ToDoList.Issue.Core.Dto;
 
-namespace ToDoList.Core.Services.Issue
+namespace ToDoList.Issue.Core.Services.Issue
 {
     public interface IIssueService
     {

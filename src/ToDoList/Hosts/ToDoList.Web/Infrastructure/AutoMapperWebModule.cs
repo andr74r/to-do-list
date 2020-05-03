@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
-using ToDoList.Core.Dto;
+using ToDoList.Issue.Core.Dto;
 using ToDoList.Security.Core.Dto;
-using ToDoList.Web.ViewModels;
 using ToDoList.Web.ViewModels.Account;
+using ToDoList.Web.ViewModels.Category;
+using ToDoList.Web.ViewModels.Issue;
 
 namespace ToDoList.Web.Infrastructure
 {

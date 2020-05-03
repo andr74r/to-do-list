@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ToDoList.Data.Entities;
-using ToDoList.Data.Repositories.CategoryRepository;
+using ToDoList.Issue.Data.Entities;
+using ToDoList.Issue.Data.Repositories;
 
-namespace ToDoList.Data.Memory.Repositories
+namespace ToDoList.Issue.Data.Memory.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {

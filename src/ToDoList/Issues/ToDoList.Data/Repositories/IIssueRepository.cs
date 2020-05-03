@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
-using ToDoList.Data.Entities;
 
-namespace ToDoList.Data.Repositories.IssueRepository
+namespace ToDoList.Issue.Data.Repositories
 {
     public interface IIssueRepository
     {
-        Issue GetIssue(int issueId);
+        Entities.Issue GetIssue(int issueId);
 
-        IEnumerable<Issue> GetIssuesByCategory(int categoryId);
+        IEnumerable<Entities.Issue> GetIssuesByCategory(int categoryId);
 
-        void SaveIssue(Issue issue);
+        void SaveIssue(Entities.Issue issue);
 
         void DeleteIssue(int id);
     }

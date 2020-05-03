@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using ToDoList.Core.Services.Issue;
-using ToDoList.Web.ViewModels;
+using ToDoList.Issue.Core.Services.Issue;
+using ToDoList.Web.ViewModels.Issue;
 
 namespace ToDoList.Web.ApiControllers
 {

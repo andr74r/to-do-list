@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Core.Services.DefaultCategoryCreator
+﻿namespace ToDoList.Issue.Core.Services.DefaultCategoryCreator
 {
     public interface IDefaultCategoryCreator
     {
