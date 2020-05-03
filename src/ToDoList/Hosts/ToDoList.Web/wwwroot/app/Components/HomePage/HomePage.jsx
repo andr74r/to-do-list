@@ -1,23 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { loadCategories, createCategory, updateCategory, deleteCategory } from '../Actions/CategoriesActions/CategoriesActions';
-import { changeIssueStatus, createIssue, deleteIssue } from '../Actions/IssuesActions/IssuesActions';
-import { selectCategory } from '../Actions/SelectedCategoryActions/SelectedCategoryActions';
-import { setIssueFilter } from '../Actions/IssueFilterActions/IssueFilterActions';
+import { loadCategories, createCategory, updateCategory, deleteCategory } from '../../Actions/CategoriesActions/CategoriesActions';
+import { changeIssueStatus, createIssue, deleteIssue } from '../../Actions/IssuesActions/IssuesActions';
+import { selectCategory } from '../../Actions/SelectedCategoryActions/SelectedCategoryActions';
+import { setIssueFilter } from '../../Actions/IssueFilterActions/IssueFilterActions';
 
 import { Content } from './Content/Content';
 import { Sidebar } from './Sidebar/Sidebar';
 
-import '../Styles/app.css';
+import '../../Styles/HomePage/app';
 
-class App extends React.Component {
+class HomePage extends React.Component {
     componentDidMount() {
         this.props.loadCategories();
     }
 
     render() {
-        return <div className="root">
+        return <div className="home-page">
             <Sidebar
                 categories={this.props.categoriesStore}
                 createCategory={this.props.createCategory}
@@ -80,4 +80,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(App)
+)(HomePage)

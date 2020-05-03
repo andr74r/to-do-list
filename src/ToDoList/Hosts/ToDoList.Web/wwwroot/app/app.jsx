@@ -10,7 +10,7 @@ import thunk from 'redux-thunk';
 
 import { rootReducer } from './Reducers/RootReducer';
 
-import App from './Components/App';
+import HomePage from './Components/HomePage/HomePage';
 import Login from './Components/Account/Login/Login';
 import Register from './Components/Account/Register/Register';
 
@@ -20,7 +20,7 @@ render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <Route exact path="/" component={App} />
+                <Route exact path="/" component={HomePage} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
             </div>

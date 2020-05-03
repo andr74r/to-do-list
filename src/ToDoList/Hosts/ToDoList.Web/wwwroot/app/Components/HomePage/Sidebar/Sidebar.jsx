@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import { CategoryList } from './CategoryList/CategoryList';
 import { AddCategoryControl } from './CategoryList/AddCategoryControl';
 
-import '../../Styles/sidebar.css';
+import '../../../Styles/HomePage/sidebar';
 
 export class Sidebar extends React.Component {
     render() {

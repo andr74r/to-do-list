@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {Issue} from './Issue';
 
-import FilterType from '../../../Consts/FilterType';
+import FilterType from '../../../../Consts/FilterType';
 
 export class IssueList extends React.Component {
     render() {

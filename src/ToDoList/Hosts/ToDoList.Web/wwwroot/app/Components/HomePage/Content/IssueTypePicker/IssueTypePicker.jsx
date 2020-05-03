@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
-import FilterType from '../../../Consts/FilterType';
+import FilterType from '../../../../Consts/FilterType';
 
 export class IssueTypePicker extends React.Component {
     render() {
