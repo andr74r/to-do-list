@@ -7,23 +7,17 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import FormLabel from '@material-ui/core/FormLabel';
 
-import AccountService from '../../../ApiServices/AccountService';
-
-import { setUser } from '../../../Actions/UserActions/UserActions';
+import { login } from '../../../Actions/UserActions/UserActions';
 
 class Login extends Component {
     constructor(props) {
         super(props);
-
-        this.accountService = new AccountService();
 
         this.state = {
             login: '',
             password: '',
             serverError: ''
         };
-
-        this.onSignInClick = this.onSignInClick.bind(this);
     }
 
     render() {
@@ -53,7 +47,7 @@ class Login extends Component {
                         : null
                 }
                 <Grid item>
-                    <Button variant="contained" color="primary" onClick={this.onSignInClick}>Sign In</Button>
+                    <Button variant="contained" color="primary" onClick={() => this.onSignInClick()}>Sign In</Button>
                 </Grid>
                 <Grid item>
                     <Link href="/register">Create new account</Link>
@@ -63,20 +57,11 @@ class Login extends Component {
     }
 
     onSignInClick() {
-        this.accountService.login(this.state.login, this.state.password)
-            .then(response => {
-                if (response.data.isLoggedIn)
-                {
-                    this.props.setUser(response.data);
-                    this.toHomePage();
-                }
-                else {
-                    this.setServerError('Incorrect login or password');
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        this.props.login(
+            this.state.login,
+            this.state.password,
+            () => this.toHomePage(), 
+            () => this.setServerError('Incorrect login or password'));
     }
 
     setServerError(error) {
@@ -92,8 +77,8 @@ class Login extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setUser: (user) => {
-            dispatch(setUser(user));
+        login: (name, password, successCallback, failCallback) => {
+            dispatch(login(name, password, successCallback, failCallback));
         }
     }
 }

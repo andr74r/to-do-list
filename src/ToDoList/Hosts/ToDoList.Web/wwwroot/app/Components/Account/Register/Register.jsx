@@ -7,15 +7,11 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import FormLabel from '@material-ui/core/FormLabel';
 
-import AccountService from '../../../ApiServices/AccountService';
-
-import { setUser } from '../../../Actions/UserActions/UserActions';
+import { register } from '../../../Actions/UserActions/UserActions';
 
 class Register extends Component {
     constructor(props){
         super(props);
-
-        this.accountService = new AccountService();
 
         this.state = {
             email: '',
@@ -28,8 +24,6 @@ class Register extends Component {
             confirmPasswordError: '',
             serverError: ''
         };
-
-        this.onSignUpClick = this.onSignUpClick.bind(this);
     }
 
     render() {
@@ -80,7 +74,7 @@ class Register extends Component {
                         : null
                 }
                 <Grid item>
-                    <Button variant="contained" color="primary" onClick={this.onSignUpClick}>Sign Up</Button>
+                    <Button variant="contained" color="primary" onClick={() => this.onSignUpClick()}>Sign Up</Button>
                 </Grid>
                 <Grid item>
                     <Link href="/login">Sing In</Link>
@@ -145,20 +139,12 @@ class Register extends Component {
     }
 
     register() {
-        this.accountService.register(this.state.email, this.state.phone, this.state.password)
-            .then(response => {
-                if (response.data.isLoggedIn)
-                {
-                    this.props.setUser(response.data);
-                    this.toHomePage();
-                }
-                else {
-                    this.setServerError('User already exists');
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        this.props.register(
+            this.state.email, 
+            this.state.phone, 
+            this.state.password,
+            () => this.toHomePage(),
+            () => this.setServerError('User already exists'));
     }
 
     setServerError(error) {
@@ -174,8 +160,8 @@ class Register extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setUser: (user) => {
-            dispatch(setUser(user));
+        register: (email, phone, password, successCallback, failCallback) => {
+            dispatch(register(email, phone, password, successCallback, failCallback));
         }
     }
 }
