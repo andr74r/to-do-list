@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Grid from '@material-ui/core/Grid';
+
 import { loadCategories, createCategory, updateCategory, deleteCategory } from '../../Actions/CategoriesActions/CategoriesActions';
 import { changeIssueStatus, createIssue, deleteIssue } from '../../Actions/IssuesActions/IssuesActions';
 import { selectCategory } from '../../Actions/SelectedCategoryActions/SelectedCategoryActions';
@@ -9,30 +11,32 @@ import { setIssueFilter } from '../../Actions/IssueFilterActions/IssueFilterActi
 import { Content } from './Content/Content';
 import { Sidebar } from './Sidebar/Sidebar';
 
-import '../../Styles/HomePage/app';
-
 class HomePage extends React.Component {
     componentDidMount() {
         this.props.loadCategories();
     }
 
     render() {
-        return <div className="home-page">
-            <Sidebar
-                categories={this.props.categoriesStore}
-                createCategory={this.props.createCategory}
-                updateCategory={this.props.updateCategory}
-                deleteCategory={this.props.deleteCategory}
-                selectCategory={this.props.selectCategory} />
-            <Content 
-                issues={this.props.issuesStore}
-                changeIssueStatus={this.props.changeIssueStatus}
-                createIssue={this.props.createIssue}
-                deleteIssue={this.props.deleteIssue}
-                selectedCategoryId={this.props.selectedCategoryId}
-                setIssueFilter={this.props.setIssueFilter}
-                issueFilter={this.props.issueFilter} />
-        </div>;
+        return <Grid container spacing={3}>
+            <Grid item xs={3}>
+                <Sidebar
+                    categories={this.props.categoriesStore}
+                    createCategory={this.props.createCategory}
+                    updateCategory={this.props.updateCategory}
+                    deleteCategory={this.props.deleteCategory}
+                    selectCategory={this.props.selectCategory} />
+            </Grid>
+            <Grid item xs={9}>
+                <Content 
+                    issues={this.props.issuesStore}
+                    changeIssueStatus={this.props.changeIssueStatus}
+                    createIssue={this.props.createIssue}
+                    deleteIssue={this.props.deleteIssue}
+                    selectedCategoryId={this.props.selectedCategoryId}
+                    setIssueFilter={this.props.setIssueFilter}
+                    issueFilter={this.props.issueFilter} />
+            </Grid>
+        </Grid>;
     }
 }
 

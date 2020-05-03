@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { IssueTypePicker } from './IssueTypePicker/IssueTypePicker';
@@ -9,7 +9,7 @@ export class Content extends React.Component {
     render() {
         const { issues } = this.props;
 
-        return <div>
+        return <Fragment>
             <IssueTypePicker 
                 setIssueFilter={this.props.setIssueFilter}/>
             <IssueList 
@@ -21,7 +21,7 @@ export class Content extends React.Component {
                 createIssue={this.props.createIssue}
                 selectedCategoryId={this.props.selectedCategoryId}
             />
-        </div>
+        </Fragment>
     }
 }
 

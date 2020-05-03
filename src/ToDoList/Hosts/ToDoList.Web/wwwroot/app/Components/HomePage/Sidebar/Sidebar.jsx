@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 
 import { CategoryList } from './CategoryList/CategoryList';
@@ -11,10 +10,7 @@ import '../../../Styles/HomePage/sidebar';
 
 export class Sidebar extends React.Component {
     render() {
-        return <Drawer
-                variant="permanent"
-                open
-                className="sidebar">
+        return <Fragment>
             <CategoryList 
                 categories = {this.props.categories}
                 updateCategory={this.props.updateCategory}
@@ -23,7 +19,7 @@ export class Sidebar extends React.Component {
             <Divider />
             <AddCategoryControl 
                 createCategory = {this.props.createCategory}/>
-        </Drawer>
+        </Fragment>;
     }
 }
 

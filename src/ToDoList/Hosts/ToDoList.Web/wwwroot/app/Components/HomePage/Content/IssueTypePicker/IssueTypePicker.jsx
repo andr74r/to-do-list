@@ -9,7 +9,7 @@ import FilterType from '../../../../Consts/FilterType';
 export class IssueTypePicker extends React.Component {
     render() {
         return <div>
-            <Grid container xs={24} spacing={5}>
+            <Grid container spacing={5}>
                 <Grid item>
                     <Button variant="contained" color="primary" onClick={() => this.props.setIssueFilter(FilterType.all)}>
                         Tasks
