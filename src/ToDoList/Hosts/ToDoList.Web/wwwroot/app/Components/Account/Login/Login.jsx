@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Link } from '@material-ui/core';
+import FormLabel from '@material-ui/core/FormLabel';
 
 import AccountService from '../../../ApiServices/AccountService';
 
@@ -15,7 +16,8 @@ class Login extends Component {
 
         this.state = {
             login: '',
-            password: ''
+            password: '',
+            serverError: ''
         };
 
         this.onSignInClick = this.onSignInClick.bind(this);
@@ -40,6 +42,13 @@ class Login extends Component {
                         value={this.state.password}
                         onChange={e => this.setState({ password: e.target.value })}/>
                 </Grid>
+                {
+                    !!this.state.serverError 
+                        ? <Grid item>
+                            <FormLabel error>{this.state.serverError}</FormLabel>
+                        </Grid>
+                        : null
+                }
                 <Grid item>
                     <Button variant="contained" color="primary" onClick={this.onSignInClick}>Sign In</Button>
                 </Grid>
@@ -55,12 +64,25 @@ class Login extends Component {
             .then(response => {
                 if (response.data.isLoggedIn)
                 {
-                    this.props.history.push('/');
+                    this.goToHomePage();
+                }
+                else {
+                    this.setServerError('Incorrect login or password');
                 }
             })
             .catch(error => {
                 console.log(error);
             });
+    }
+
+    setServerError(error) {
+        this.setState({
+            serverError: error
+        });
+    }
+
+    goToHomePage() {
+        this.props.history.push('/');
     }
 }
 
