@@ -16,6 +16,11 @@ namespace ToDoList.Web.Controllers
         [Route("/register")]
         public IActionResult Login()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Redirect("/");
+            }
+
             return View("Index");
         }
     }
