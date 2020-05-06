@@ -1,5 +1,5 @@
 # to-do-list
-Simple ToDo List
+Asp.net core + React
 
 ## List of technologies:
  - ASP.NET Core
