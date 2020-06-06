@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ToDoList.Issue.Data.Entities;
+using ToDoList.Issue.Domain.Entities;
 
-namespace ToDoList.Issue.Data.Repositories
+namespace ToDoList.Issue.Domain.Repositories
 {
     public interface ICategoryRepository
     {
