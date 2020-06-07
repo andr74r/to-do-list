@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ToDoList.Issue.Domain.Tests
@@ -27,6 +28,19 @@ namespace ToDoList.Issue.Domain.Tests
 
             // Act
             var del = new TestDelegate(() => new Entities.Category(1, name));
+
+            // Assert
+            Assert.Throws<System.ArgumentException>(del);
+        }
+
+        [Test]
+        public void Ctor_IncorrectIssuesList_ShouldThrowArgException()
+        {
+            // Arrange
+            List<Entities.Issue> issues = null;
+
+            // Act
+            var del = new TestDelegate(() => new Entities.Category(1, "Home", issues));
 
             // Assert
             Assert.Throws<System.ArgumentException>(del);
@@ -140,6 +154,20 @@ namespace ToDoList.Issue.Domain.Tests
 
             // Assert
             Assert.Throws<System.ArgumentException>(del);
+        }
+
+        [Test]
+        public void ChangeIssueStatus_IssueName_ShouldCompleteIssue()
+        {
+            // Arrange
+            var category = new Entities.Category(1, "Home");
+            category.AddIssue("Clean up room");
+
+            // Act
+            category.ChangeIssueStatus("Clean up room");
+
+            // Assert
+            Assert.IsTrue(category.GetIssues().First().IsCompleted);
         }
     }
 }

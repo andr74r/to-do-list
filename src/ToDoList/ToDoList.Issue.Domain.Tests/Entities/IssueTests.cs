@@ -38,7 +38,7 @@ namespace ToDoList.Issue.Domain.Tests
             var issue = new Entities.Issue("Clean up room", true);
 
             // Act
-            issue.ChangeIssueStatus();
+            issue.ChangeStatus();
 
             // Assert
             Assert.IsFalse(issue.IsCompleted);
