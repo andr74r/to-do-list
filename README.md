@@ -5,7 +5,14 @@ The Application has two Bounded Context:
  - Issue. This BC is responsible for task creation and has many DDD patterns;
  - Security. This BC is responsible for authorization and it's a classic 3-layer arcitecture.
  
+### Solution structure
+![sol-str](https://raw.githubusercontent.com/andr74r/to-do-list/master/blob/SolutionStructure.PNG)
  
+### Authentification demo
+![auth-demo](https://raw.githubusercontent.com/andr74r/to-do-list/master/blob/Auth.gif)
+
+### Task managment demo
+![task-demo](https://raw.githubusercontent.com/andr74r/to-do-list/master/blob/Issue.gif)
 
 ## List of technologies:
  - ASP.NET Core
