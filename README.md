@@ -1,5 +1,11 @@
 # to-do-list
-Asp.net core + React
+Simple DDD example based on ASP.NET Core + React.
+
+The Application has two Bounded Context:
+ - Issue. This BC is responsible for task creation and has many DDD patterns;
+ - Security. This BC is responsible for authorization and it's a classic 3-layer arcitecture.
+ 
+ 
 
 ## List of technologies:
  - ASP.NET Core
