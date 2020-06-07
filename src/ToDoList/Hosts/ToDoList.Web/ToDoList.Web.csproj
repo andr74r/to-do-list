@@ -7,16 +7,16 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="5.1.2" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="MediatR" Version="8.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Issues\ToDoList.Core\ToDoList.Issue.Core.csproj" />
-    <ProjectReference Include="..\..\Issues\ToDoList.Data.Memory\ToDoList.Issue.Data.Memory.csproj" />
-    <ProjectReference Include="..\..\Issues\ToDoList.Data\ToDoList.Issue.Data.csproj" />
     <ProjectReference Include="..\..\Security\ToDoList.Security.Core\ToDoList.Security.Core.csproj" />
     <ProjectReference Include="..\..\Security\ToDoList.Security.Data.Memory\ToDoList.Security.Data.Memory.csproj" />
     <ProjectReference Include="..\..\Security\ToDoList.Security.Data\ToDoList.Security.Data.csproj" />
+    <ProjectReference Include="..\..\ToDoList.Issue.Application\ToDoList.Issue.Application.csproj" />
+    <ProjectReference Include="..\..\ToDoList.Issue.Infrastructure\ToDoList.Issue.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

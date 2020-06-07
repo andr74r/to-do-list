@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MediatR.Extensions.Autofac.DependencyInjection;
 
 namespace ToDoList.Issue.Core.Infrastructure
 {
@@ -6,7 +7,7 @@ namespace ToDoList.Issue.Core.Infrastructure
     {
         protected override void Load(ContainerBuilder builder)
         {
-
+            builder.AddMediatR(ThisAssembly);
         }
     }
 }

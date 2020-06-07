@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ToDoList.Data\ToDoList.Issue.Data.csproj" />
+    <ProjectReference Include="..\ToDoList.Issue.Domain\ToDoList.Issue.Domain.csproj" />
   </ItemGroup>
 
 </Project>

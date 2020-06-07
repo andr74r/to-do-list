@@ -4,10 +4,10 @@ namespace ToDoList.Web.ViewModels.Issue
 {
     public class ChangeIssueStatusViewModel
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
+        [JsonProperty("categoryId")]
+        public int CategoryId { get; set; }
 
-        [JsonProperty("isCompleted")]
-        public bool IsCompleted { get; set; }
+        [JsonProperty("issueName")]
+        public string IssueName { get; set; }
     }
 }

@@ -1,8 +1,17 @@
-﻿namespace ToDoList.Issue.Domain.Entities
+﻿using System;
+
+namespace ToDoList.Issue.Domain.Entities
 {
     public class Issue
     {
-        public int? Id { get; private set; }
+        private int? _id;
+        public int? Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
         
         public bool IsCompleted { get; private set; }
 
@@ -16,6 +25,12 @@
             Name = name;
         }
 
+        public Issue(int? id, string name, bool isCompleted = false)
+            : this (name, isCompleted)
+        {
+            _id = id;
+        }
+
         public void ChangeStatus()
         {
             IsCompleted = !IsCompleted;
@@ -26,6 +41,12 @@
             ThrowExceptionIfNameIsInvalid(name);
 
             Name = name;
+        }
+
+
+        public Issue Clone()
+        {
+            return new Issue(Id, Name, IsCompleted);
         }
 
         private void ThrowExceptionIfNameIsInvalid(string name)

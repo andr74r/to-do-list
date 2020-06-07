@@ -3,9 +3,11 @@ using System.Linq;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using ToDoList.Web.Extensions;
-using ToDoList.Issue.Core.Services.Category;
 using ToDoList.Web.ViewModels.Category;
-using ToDoList.Issue.Core.Dto;
+using MediatR;
+using System.Threading.Tasks;
+using ToDoList.Issue.Application.Queries;
+using ToDoList.Issue.Application.Commands;
 
 namespace ToDoList.Web.ApiControllers
 {
@@ -13,22 +15,25 @@ namespace ToDoList.Web.ApiControllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly ICategoryService _categoryService;
+        private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
         public CategoryController(
-            ICategoryService categoryService,
+            IMediator mediator,
             IMapper mapper)
         {
-            _categoryService = categoryService;
+            _mediator = mediator;
             _mapper = mapper;
         }
 
         [Route("api/categories")]
         [HttpGet]
-        public IActionResult GetCategories()
+        public async Task<IActionResult> GetCategories()
         {
-            var categories = _categoryService.GetUserCategories(User.Identity.UserId());
+            var categories = await _mediator.Send(new GetCategoriesQuery 
+            { 
+                UserId = User.Identity.UserId()
+            });
 
             var viewModel = categories
                 .Select(c => _mapper.Map<CategoryViewModel>(c))
@@ -39,28 +44,36 @@ namespace ToDoList.Web.ApiControllers
 
         [Route("api/categories")]
         [HttpPost]
-        public IActionResult CreateCategory(CreateCategoryViewModel saveViewModel)
+        public async Task<IActionResult> CreateCategory(CreateCategoryViewModel saveViewModel)
         {
-            var category = _categoryService.CreateCategory(saveViewModel.Name, User.Identity.UserId());
+            var category = await _mediator.Send(new CreateOrUpdateCategoryCommand 
+            { 
+                UserId = User.Identity.UserId(),
+                Name = saveViewModel.Name
+            });
 
             return Ok(_mapper.Map<CategoryViewModel>(category));
         }
 
         [Route("api/categories")]
         [HttpPut]
-        public IActionResult UpdateCategory(UpdateCategoryViewModel updateViewModel)
+        public async Task<IActionResult> UpdateCategory(UpdateCategoryViewModel updateViewModel)
         {
-            var category = _categoryService.UpdateCategory(
-                _mapper.Map<CategoryDto>(updateViewModel));
+            var category = await _mediator.Send(new CreateOrUpdateCategoryCommand
+            {
+                UserId = User.Identity.UserId(),
+                Name = updateViewModel.Name,
+                Id = updateViewModel.Id
+            });
 
             return Ok(_mapper.Map<CategoryViewModel>(category));
         }
 
         [Route("api/categories/{id}")]
         [HttpDelete]
-        public IActionResult DeleteCategory(int id)
+        public async Task<IActionResult> DeleteCategory(int id)
         {
-            _categoryService.DeleteCategory(id);
+            await _mediator.Send(new DeleteCategoryCommand { CategoryId = id });
 
             return Ok();
         }

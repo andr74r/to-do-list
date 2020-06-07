@@ -5,7 +5,14 @@ namespace ToDoList.Issue.Domain.Entities
 {
     public class Category
     {
-        public int? Id { get; private set; }
+        private int? _id;
+        public int? Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
 
         public int UserId { get; private set; }
 
@@ -38,6 +45,12 @@ namespace ToDoList.Issue.Domain.Entities
             }
 
             _issues = issues;
+        }
+
+        public Category(int? id, int userId, string name, List<Issue> issues)
+            : this(userId, name, issues)
+        {
+            _id = id;
         }
 
         public void SetName(string name)
@@ -92,6 +105,11 @@ namespace ToDoList.Issue.Domain.Entities
             issue.ChangeStatus();
 
             return issue;
+        }
+
+        public Category Clone()
+        {
+            return new Category(Id, UserId, Name, _issues.Select(x => x.Clone()).ToList());
         }
 
         private void ThrowExceptionIfNameIsInvalid(string name)

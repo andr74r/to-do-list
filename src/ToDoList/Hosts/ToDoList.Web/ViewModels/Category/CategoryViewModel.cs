@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using ToDoList.Web.ViewModels.Issue;
 
 namespace ToDoList.Web.ViewModels.Category
 {
@@ -9,5 +11,7 @@ namespace ToDoList.Web.ViewModels.Category
 
         [JsonProperty("name")]
         public string Name { get; set; }
+
+        public List<IssueViewModel> Issues { get; set; }
     }
 }

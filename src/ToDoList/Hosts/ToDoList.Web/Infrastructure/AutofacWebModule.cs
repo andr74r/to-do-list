@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using AutoMapper;
 using ToDoList.Issue.Core.Infrastructure;
-using ToDoList.Issue.Data.Memory.Infrastructure;
+using ToDoList.Issue.Infrastructure.Infrastructure;
 using ToDoList.Security.Core.Infrastructure;
 using ToDoList.Security.Data.Memory.Infrastructure;
 
@@ -13,7 +13,7 @@ namespace ToDoList.Web.Infrastructure
         {
             builder.Register(ctx => MapperFactory.CreateMapper()).As<IMapper>();
 
-            builder.RegisterModule(new AutofacIssueDataMemoryModule());
+            builder.RegisterModule(new AutofacIssueInfrastructureModule());
 
             builder.RegisterModule(new AutofacIssueModule());
 
