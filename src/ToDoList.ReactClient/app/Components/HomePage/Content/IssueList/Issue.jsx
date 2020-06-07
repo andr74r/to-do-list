@@ -12,11 +12,11 @@ export class Issue extends React.Component {
         return <div>
             <Checkbox
                 checked={issue.isCompleted}
-                onChange={() => this.props.changeIssueStatus(issue.id, !issue.isCompleted)}
+                onChange={() => this.props.changeIssueStatus(this.props.selectedCategoryId, issue.name)}
                 color="primary"
             />
             {issue.name}
-            <IconButton onClick={() => this.props.deleteIssue(issue.id)}>
+            <IconButton onClick={() => this.props.deleteIssue(this.props.selectedCategoryId, issue.name)}>
                 <DeleteForeverIcon fontSize="small" />
             </IconButton>
         </div>
@@ -25,6 +25,7 @@ export class Issue extends React.Component {
 
 Issue.propTypes = {
     issue: PropTypes.object,
+    selectedCategoryId: PropTypes.number,
     changeIssueStatus: PropTypes.func,
     deleteIssue: PropTypes.func
 };

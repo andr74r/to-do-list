@@ -4,19 +4,11 @@ import IssueService from '../../ApiServices/IssueService';
 
 const issueService = new IssueService();
 
-export const loadIssues = (categoryId) => {
-    return dispatch => {
-        issueService.loadIssues(categoryId)
-            .then(response => {
-                dispatch({
-                    type: SET_ISSUES,
-                    issues: response.data
-                })
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+export const setIssues = (issues) => {
+    return {
+        type: SET_ISSUES,
+        issues: issues
+    };
 }
 
 export const createIssue = (categoryId, name) => {
@@ -34,9 +26,9 @@ export const createIssue = (categoryId, name) => {
     }
 }
 
-export const changeIssueStatus = (id, isCompleted) => {
+export const changeIssueStatus = (categoryId, issueName) => {
     return dispatch => {
-        issueService.changeIssueStatus(id, isCompleted)
+        issueService.changeIssueStatus(categoryId, issueName)
             .then(response => {
                 dispatch({
                     type: UPDATE_ISSUE,
@@ -49,13 +41,13 @@ export const changeIssueStatus = (id, isCompleted) => {
     }
 }
 
-export const deleteIssue = (id) => {
+export const deleteIssue = (categoryId, issueName) => {
     return dispatch => {
-        issueService.deleteIssue(id)
+        issueService.deleteIssue(categoryId, issueName)
             .then(() => {
                 dispatch({
                     type: DELETE_ISSUE,
-                    issueId: id
+                    issueName: issueName
                 });
             })
             .catch(error => {

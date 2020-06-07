@@ -7,6 +7,15 @@ Array.prototype.removeItemById = function(id) {
     return this.filter(x => x.id != id);
 }
 
+Array.prototype.removeItemByName = function(name) {
+    if (!Array.isArray(this))
+    {
+        return this;
+    }
+
+    return this.filter(x => x.name != name);
+}
+
 Array.prototype.replaceItemById = function(item) {
     if (!Array.isArray(this))
     {

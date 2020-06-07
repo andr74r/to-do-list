@@ -1,13 +1,13 @@
 import { SELECT_CATEGORY } from './SelectedCategoryActionsType';
 
-import { loadIssues } from '../IssuesActions/IssuesActions';
+import { setIssues } from '../IssuesActions/IssuesActions';
 
-export const selectCategory = categoryId => {
+export const selectCategory = category => {
     return dispatch => {
         dispatch({
             type: SELECT_CATEGORY,
-            categoryId: categoryId
+            category: category
         });
-        dispatch(loadIssues(categoryId));
+        dispatch(setIssues(category.issues));
     }
 }

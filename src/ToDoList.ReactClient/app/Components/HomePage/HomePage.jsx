@@ -44,7 +44,7 @@ const mapStateToProps = state => {
     return {
         categoriesStore: state.categoriesStore,
         issuesStore: state.issuesStore,
-        selectedCategoryId: state.selectedCategoryStore,
+        selectedCategoryId: state.selectedCategoryStore.id,
         issueFilter: state.issueFilterStore
     }
 }
@@ -63,17 +63,17 @@ const mapDispatchToProps = dispatch => {
         deleteCategory: (id) => {
             dispatch(deleteCategory(id));
         },
-        changeIssueStatus: (id, isCompleted) => {
-            dispatch(changeIssueStatus(id, isCompleted));
+        changeIssueStatus: (categoryId, issueName) => {
+            dispatch(changeIssueStatus(categoryId, issueName));
         },
         createIssue: (categoryId, name) => {
             dispatch(createIssue(categoryId, name));
         },
-        deleteIssue: (id) => {
-            dispatch(deleteIssue(id));
+        deleteIssue: (categoryId, issueName) => {
+            dispatch(deleteIssue(categoryId, issueName));
         },
-        selectCategory: (categoryId) => {
-            dispatch(selectCategory(categoryId));
+        selectCategory: (category) => {
+            dispatch(selectCategory(category));
         },
         setIssueFilter: (filter) => {
             dispatch(setIssueFilter(filter));

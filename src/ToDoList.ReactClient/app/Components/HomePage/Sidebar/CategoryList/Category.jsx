@@ -92,7 +92,7 @@ export class Category extends React.Component {
     }
 
     onNameClick(e) {
-        this.props.selectCategory(this.props.category.id);
+        this.props.selectCategory(this.props.category);
         e.stopPropagation();
     }
 }

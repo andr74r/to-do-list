@@ -18,7 +18,7 @@ export const loadCategories = () => {
                 });
 
                 if (categories.length) {
-                    dispatch(selectCategory(categories[0].id));
+                    dispatch(selectCategory(categories[0]));
                 }
             })
             .catch(error => {

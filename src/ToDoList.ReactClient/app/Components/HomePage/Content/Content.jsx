@@ -14,6 +14,7 @@ export class Content extends React.Component {
                 setIssueFilter={this.props.setIssueFilter}/>
             <IssueList 
                 issues={issues}
+                selectedCategoryId={this.props.selectedCategoryId}
                 changeIssueStatus={this.props.changeIssueStatus}
                 deleteIssue={this.props.deleteIssue}
                 issueFilter={this.props.issueFilter}/>

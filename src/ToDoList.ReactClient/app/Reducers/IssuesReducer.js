@@ -7,7 +7,7 @@ export const issuesReducer = (state = [], action) => {
             return [...state.sortById()];
         case DELETE_ISSUE:
             return state
-                .removeItemById(action.issueId)
+                .removeItemByName(action.issueName)
                 .sortById();
         case SET_ISSUES:
             return action.issues.sortById();

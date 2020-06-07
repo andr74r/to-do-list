@@ -30,6 +30,7 @@ export class IssueList extends React.Component {
                 <Issue 
                     key={x.id}
                     issue={x}
+                    selectedCategoryId={this.props.selectedCategoryId}
                     changeIssueStatus={this.props.changeIssueStatus}
                     deleteIssue={this.props.deleteIssue} />)}
         </div>
@@ -38,6 +39,7 @@ export class IssueList extends React.Component {
 
 IssueList.propTypes = {
     issues: PropTypes.array,
+    selectedCategoryId: PropTypes.number,
     changeIssueStatus: PropTypes.func,
     deleteIssue: PropTypes.func,
     issueFilter: PropTypes.string
